@@ -2,15 +2,8 @@ import { readdirSync, statSync } from "fs";
 import { resolve, sep } from "path";
 
 export async function workspaceFolders(): Promise<string[]> {
-	// const ignoredFolders: string[] = (await import("../ignoredFolders"))
-	// 	.default;
-
 	let folderNames: string[] = readdirSync(resolve());
 	folderNames = folderNames.filter(
-		// (folderName: string) =>
-		// 	!ignoredFolders.some((name: string) => folderName === name) &&
-		//     statSync(folderName).isDirectory()
-
 		(folderName: string) =>
 			!folderName.includes(".") &&
 			!folderName.includes("_") &&
