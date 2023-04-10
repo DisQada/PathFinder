@@ -1,0 +1,20 @@
+{
+	"cSpell.words": ["analyzer", "disqada", "github", "prerelease"],
+	"eslint.workingDirectories": [
+		{ "pattern": "./src/*" },
+		{ "pattern": "./tests/*" }
+	],
+	"eslint.validate": ["javascript", "typescript"],
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.trimAutoWhitespace": true,
+	"editor.formatOnSave": true,
+	"editor.formatOnSaveMode": "file",
+	"editor.codeActionsOnSave": {
+		"source.fixAll": true,
+		"source.organizeImports": true
+	},
+	"files.insertFinalNewline": true,
+	"files.eol": "\n",
+	"npm.packageManager": "npm",
+	"typescript.tsdk": "node_modules/typescript/lib"
+}
