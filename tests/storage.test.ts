@@ -1,9 +1,8 @@
 import { expect, test } from "vitest";
-import { getFilePathsInFolder } from "../src/helpers/saver";
+import { getFilePathsInFolder } from "../src/saver";
 import { aFilePath, allFilePaths, saveFilePaths } from "../src/storage";
 import FilePath from "../src/types/filePath";
 
-// const folders = await workspaceFolders();
 const folders = ["src", "tests"];
 
 test("Retrieve paths without saving", async () => {

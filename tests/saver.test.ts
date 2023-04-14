@@ -2,7 +2,7 @@ import { expect, test } from "vitest";
 import { getFilePathsInFolder, storeFilePathsInFolders } from "../src/saver";
 
 test("getFilePathsInFolder function", async () => {
-	const folderPaths = ["src", "test"];
+	const folderPaths = ["src", "tests"];
 
 	for (let i = 0; i < folderPaths.length; i++) {
 		const paths = getFilePathsInFolder(folderPaths[i]);
