@@ -43,18 +43,17 @@
 	},
 	"contributors": [],
 	"license": "Apache-2.0",
-	"dependencies": {},
 	"devDependencies": {
 		"@semantic-release/changelog": "^6.0.3",
 		"@semantic-release/git": "^10.0.1",
-		"@types/node": "^18.8.3",
-		"@vitest/coverage-c8": "^0.29.7",
+		"@types/node": "^18.15.11",
+		"@vitest/coverage-c8": "^0.29.8",
 		"commitizen": "^4.3.0",
 		"cz-conventional-changelog": "^3.3.0",
 		"semantic-release": "^21.0.1",
 		"tslib": "^2.5.0",
-		"typescript": "^5.0.2",
-		"vitest": "^0.29.7"
+		"typescript": "^5.0.4",
+		"vitest": "^0.29.8"
 	},
 	"publishConfig": {
 		"access": "public"
