@@ -1,7 +1,7 @@
 import { readdirSync, statSync } from "fs";
 import { sep } from "path";
-import { workspaceFolders } from "./helpers/saver";
 import { saveFilePaths } from "./storage";
+import { workspaceFolders } from "./utilities";
 
 export function getFilePathsInFolder(
 	folderPath: string,
