@@ -1,5 +1,5 @@
 import { readdirSync, statSync } from "fs";
-import { resolve, sep } from "path";
+import { resolve } from "path";
 
 export async function workspaceFolders(): Promise<string[]> {
 	let folderNames: string[] = readdirSync(resolve());
@@ -11,26 +11,4 @@ export async function workspaceFolders(): Promise<string[]> {
 	);
 
 	return folderNames;
-}
-
-export function getFilePathsInFolder(
-	folderPath: string,
-	deepSearch?: boolean
-): string[] {
-	if (!statSync(folderPath).isDirectory()) {
-		throw new Error("Folder path is invalid: " + folderPath);
-	}
-
-	const allFiles: string[] = [];
-
-	for (const name of readdirSync(folderPath)) {
-		const fullPath = folderPath + sep + name;
-		if (name.includes(".") && statSync(fullPath).isFile()) {
-			allFiles.push(fullPath);
-		} else if (deepSearch && statSync(fullPath).isDirectory()) {
-			allFiles.push(...getFilePathsInFolder(fullPath, deepSearch));
-		}
-	}
-
-	return allFiles;
 }
