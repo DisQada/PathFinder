@@ -1,6 +1,6 @@
 import path, { sep } from "path";
 import { expect, test } from "vitest";
-import FilePath from "../../src/types/filePath";
+import { FilePath } from "../../src/types/filePath";
 
 test("filePath class initialising", () => {
 	const myPath = "./tests/types/filePath.test.ts";
