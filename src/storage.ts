@@ -1,4 +1,4 @@
-import FilePath from "./types/filePath";
+import { FilePath } from "./types/filePath";
 
 const filePaths = new Map<string, FilePath[]>();
 

@@ -1,7 +1,7 @@
 import { statSync } from "fs";
 import { isAbsolute, resolve, sep } from "path";
 
-export default class FilePath {
+export class FilePath {
     name: string;
     folder: string;
     extension: string;
