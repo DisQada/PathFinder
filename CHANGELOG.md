@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/DisQada/pathfinder/compare/v1.0.0...v1.0.1) (2023-04-24)
+
+
+### Bug Fixes
+
+* **filepath:** change from default export to normal export ([e81998e](https://github.com/DisQada/pathfinder/commit/e81998e49d057c2f060963e7607edcee02c37a8a))
+
 # 1.0.0 (2023-04-14)
 
 

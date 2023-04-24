@@ -1,6 +1,6 @@
 {
 	"name": "@disqada/pathfinder",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Easily find files in chosen directories in your project",
 	"scripts": {
 		"build": "tsc",
