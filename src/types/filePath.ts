@@ -7,9 +7,13 @@ export class FilePath {
     extension: string;
     root: string;
 
-    public constructor(filePath: string) {
+    public constructor(filePath: string, relativeTo?: string) {
         if (!isAbsolute(filePath)) {
-            filePath = resolve(filePath);
+            if (relativeTo) {
+                filePath = resolve(relativeTo, filePath);
+            } else {
+                filePath = resolve(filePath);
+            }
         }
 
         const stat = statSync(filePath);
