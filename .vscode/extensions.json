@@ -1,9 +1,9 @@
 {
-	"recommendations": [
-		"streetsidesoftware.code-spell-checker",
-		"christian-kohler.path-intellisense",
-		"dbaeumer.vscode-eslint",
-		"esbenp.prettier-vscode",
-		"tabnine.tabnine-vscode"
-	]
+    "recommendations": [
+        "streetsidesoftware.code-spell-checker",
+        "christian-kohler.path-intellisense",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "tabnine.tabnine-vscode"
+    ]
 }
