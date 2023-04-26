@@ -61,21 +61,29 @@ test("Class instantiating", () => {
 });
 
 test("Relative path", () => {
+    function innerTest(filePath: FilePath, resolved: string) {
+        expect(filePath).to.be.an("object");
+
+        expect(filePath.fullPath).toEqual(resolved);
+        expect(filePath.fullName).toEqual("saver.test.ts");
+
+        const index = resolved.indexOf("tests");
+        const root = resolved.substring(0, index - 1);
+        expect(filePath.root).toEqual(root);
+        expect(filePath.folder).toEqual("tests");
+        expect(filePath.name).toEqual("saver");
+        expect(filePath.extension).toEqual("test.ts");
+    }
+
     const myPath = "../saver.test.ts";
     const resolved = resolve(__dirname, myPath);
-    const filePath = new FilePath(resolved);
+    let filePath = new FilePath(resolved);
 
-    expect(filePath).to.be.an("object");
+    innerTest(filePath, resolved);
 
-    expect(filePath.fullPath).toEqual(resolved);
-    expect(filePath.fullName).toEqual("saver.test.ts");
+    filePath = new FilePath(myPath, __dirname);
 
-    const index = resolved.indexOf("tests");
-    const root = resolved.substring(0, index - 1);
-    expect(filePath.root).toEqual(root);
-    expect(filePath.folder).toEqual("tests");
-    expect(filePath.name).toEqual("saver");
-    expect(filePath.extension).toEqual("test.ts");
+    innerTest(filePath, resolved);
 });
 
 test("Directory path", () => {
