@@ -1,66 +1,71 @@
 {
-	"name": "@disqada/pathfinder",
-	"version": "1.0.1",
-	"description": "Easily find files in chosen directories in your project",
-	"scripts": {
-		"build": "tsc",
-		"watch": "tsc -w",
-		"test": "vitest",
-		"commit": "git-cz",
-		"semantic-release": "semantic-release"
-	},
-	"main": "dist/index.js",
-	"types": "dist/index.d.ts",
-	"exports": {
-		"require": "./dist/index.js",
-		"types": "./dist/index.d.ts"
-	},
-	"files": [
-		"dist"
-	],
-	"homepage": "https://github.com/DisQada/pathfinder",
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/DisQada/pathfinder.git"
-	},
-	"bugs": {
-		"url": "https://github.com/DisQada/pathfinder/issues"
-	},
-	"keywords": [
-		"find",
-		"search",
-		"path",
-		"paths",
-		"directory",
-		"folder",
-		"file",
-		"finder"
-	],
-	"author": {
-		"name": "The Alpha",
-		"email": "contact@nabilalsaiad.com",
-		"url": "https://links.nabilalsaiad.com"
-	},
-	"contributors": [],
-	"license": "Apache-2.0",
-	"devDependencies": {
-		"@semantic-release/changelog": "^6.0.3",
-		"@semantic-release/git": "^10.0.1",
-		"@types/node": "^18.15.11",
-		"@vitest/coverage-c8": "^0.29.8",
-		"commitizen": "^4.3.0",
-		"cz-conventional-changelog": "^3.3.0",
-		"semantic-release": "^21.0.1",
-		"tslib": "^2.5.0",
-		"typescript": "^5.0.4",
-		"vitest": "^0.29.8"
-	},
-	"publishConfig": {
-		"access": "public"
-	},
-	"config": {
-		"commitizen": {
-			"path": "./node_modules/cz-conventional-changelog"
-		}
-	}
+    "name": "@disqada/pathfinder",
+    "version": "1.0.1",
+    "description": "Easily find files in chosen directories in your project",
+    "scripts": {
+        "build": "tsc",
+        "build:watch": "tsc -w",
+        "test": "vitest run",
+        "test:watch": "vitest",
+        "format": "eslint . --fix & prettier --write .",
+        "commit": "git-cz",
+        "semantic-release": "semantic-release"
+    },
+    "main": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+        "require": "./dist/index.js",
+        "types": "./dist/index.d.ts"
+    },
+    "files": [
+        "dist"
+    ],
+    "homepage": "https://github.com/DisQada/pathfinder",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/DisQada/pathfinder.git"
+    },
+    "bugs": {
+        "url": "https://github.com/DisQada/pathfinder/issues"
+    },
+    "keywords": [
+        "find",
+        "search",
+        "path",
+        "paths",
+        "directory",
+        "folder",
+        "file",
+        "finder"
+    ],
+    "author": {
+        "name": "The Alpha",
+        "email": "contact@nabilalsaiad.com",
+        "url": "https://links.nabilalsaiad.com"
+    },
+    "contributors": [],
+    "license": "Apache-2.0",
+    "devDependencies": {
+        "@semantic-release/changelog": "^6.0.3",
+        "@semantic-release/git": "^10.0.1",
+        "@types/node": "^18.15.11",
+        "@typescript-eslint/eslint-plugin": "^5.59.0",
+        "@typescript-eslint/parser": "^5.59.0",
+        "@vitest/coverage-c8": "^0.29.8",
+        "commitizen": "^4.3.0",
+        "cz-conventional-changelog": "^3.3.0",
+        "eslint": "^8.39.0",
+        "prettier": "^2.8.8",
+        "semantic-release": "^21.0.1",
+        "typescript": "^5.0.4",
+        "vitest": "^0.29.8"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "config": {
+        "commitizen": {
+            "path": "./node_modules/cz-conventional-changelog"
+        }
+    }
 }
