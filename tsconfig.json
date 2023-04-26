@@ -36,7 +36,6 @@
         "removeComments": false,
         "esModuleInterop": true,
         "preserveConstEnums": true,
-        "importsNotUsedAsValues": "error",
         "forceConsistentCasingInFileNames": true,
 
         // Language and Environment
