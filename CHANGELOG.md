@@ -1,3 +1,11 @@
+## [1.1.1](https://github.com/DisQada/pathfinder/compare/v1.1.0...v1.1.1) (2023-04-26)
+
+
+### Bug Fixes
+
+* **package.json:** add exports.import option ([f3a19d9](https://github.com/DisQada/pathfinder/commit/f3a19d9832b557d15ff2d6e5dd8bff2cea26ff6e))
+* **tsconfig:** remove deprecated option ([b731424](https://github.com/DisQada/pathfinder/commit/b7314245cd142a94eda28f223f959b12657d20dc))
+
 # [1.1.0](https://github.com/DisQada/pathfinder/compare/v1.0.1...v1.1.0) (2023-04-26)
 
 
