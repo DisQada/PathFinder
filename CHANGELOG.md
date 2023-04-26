@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/DisQada/pathfinder/compare/v1.0.1...v1.1.0) (2023-04-26)
+
+
+### Features
+
+* **filepath:** add filepath constructor argument ([ea0609d](https://github.com/DisQada/pathfinder/commit/ea0609d6fc64ea05af35d9813b9964a11599b02c))
+
 ## [1.0.1](https://github.com/DisQada/pathfinder/compare/v1.0.0...v1.0.1) (2023-04-24)
 
 
