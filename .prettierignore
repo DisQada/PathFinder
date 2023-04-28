@@ -2,6 +2,7 @@
 .git/
 node_modules/
 dist/
+types/
 
 # Don't ignore folders
 !.vscode/

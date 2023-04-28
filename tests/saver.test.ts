@@ -1,8 +1,8 @@
 import { expect, test } from "vitest";
-import { getFilePathsInFolder, storeFilePathsInFolders } from "../src/saver";
+import { getFilePathsInFolder, storeFilePathsInFolders } from "../dist/saver";
 
 test("getFilePathsInFolder function", async () => {
-    const folderPaths = ["src", "tests"];
+    const folderPaths = ["dist", "tests"];
 
     for (let i = 0; i < folderPaths.length; i++) {
         const paths = getFilePathsInFolder(folderPaths[i]);
