@@ -9,7 +9,7 @@
         "ecmaVersion": "latest"
     },
     "plugins": ["@typescript-eslint"],
-    "ignorePatterns": ["**/*.md"],
+    "ignorePatterns": ["**/dist/**", "**/types/**", "**/*.md"],
     "rules": {
         "@typescript-eslint/no-inferrable-types": "off"
     }
