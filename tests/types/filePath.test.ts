@@ -1,6 +1,6 @@
 import { resolve, sep } from "path";
 import { expect, test } from "vitest";
-import { FilePath } from "../../src/types/filePath";
+import { FilePath } from "../../dist/types/filePath";
 
 test("Invalid path", () => {
     let myPath = "tests/fake.test.ts";

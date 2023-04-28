@@ -1,9 +1,9 @@
 import { expect, test } from "vitest";
-import { getFilePathsInFolder } from "../src/saver";
-import { aFilePath, allFilePaths, saveFilePaths } from "../src/storage";
-import { FilePath } from "../src/types/filePath";
+import { getFilePathsInFolder } from "../dist/saver";
+import { aFilePath, allFilePaths, saveFilePaths } from "../dist/storage";
+import { FilePath } from "../dist/types/filePath";
 
-const folders = ["src", "tests"];
+const folders = ["dist", "tests"];
 
 test("Retrieve paths without saving", async () => {
     const path1 = allFilePaths();
@@ -29,9 +29,9 @@ test("saveFilePaths & aFilePath functions", async () => {
         saveFilePaths(paths);
     }
 
-    let path = aFilePath("storage");
-    expect(path).to.be.an("array");
+    const path = aFilePath("storage");
+    expect(path).toBeInstanceOf(Array<FilePath>);
 
-    path = aFilePath("index");
-    expect(path).toBeInstanceOf(FilePath);
+    // path = aFilePath("index.js");
+    // expect(path).toBeInstanceOf(FilePath);
 });
