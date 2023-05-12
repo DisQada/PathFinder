@@ -6,7 +6,7 @@
         "build": "tsc",
         "build:watch": "tsc -w",
         "test": "cls & npm run build & vitest run",
-        "format": "prettier --write . & eslint . --fix",
+        "format": "prettier . --write & eslint . --fix",
         "commit": "git-cz",
         "semantic-release": "semantic-release"
     },
@@ -23,8 +23,8 @@
         }
     },
     "files": [
-        "dist/**/*.js",
-        "types/**/*.d.ts",
+        "dist/",
+        "types/",
         "CHANGELOG.md"
     ],
     "homepage": "https://github.com/DisQada/pathfinder",
