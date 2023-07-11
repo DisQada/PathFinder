@@ -3,9 +3,13 @@ import { sep } from "path";
 import { saveFilePaths } from "./storage";
 import { workspaceFolders } from "./utilities";
 
+export interface SearchOptions {
+    deepSearch?: boolean;
+}
+
 export function getFilePathsInFolder(
     folderPath: string,
-    deepSearch?: boolean
+    options: SearchOptions
 ): string[] {
     if (!statSync(folderPath).isDirectory()) {
         throw new Error("Folder path is invalid: " + folderPath);
@@ -17,8 +21,8 @@ export function getFilePathsInFolder(
         const fullPath = folderPath + sep + name;
         if (name.includes(".") && statSync(fullPath).isFile()) {
             allFiles.push(fullPath);
-        } else if (deepSearch && statSync(fullPath).isDirectory()) {
-            allFiles.push(...getFilePathsInFolder(fullPath, deepSearch));
+        } else if (options.deepSearch && statSync(fullPath).isDirectory()) {
+            allFiles.push(...getFilePathsInFolder(fullPath, options));
         }
     }
 
@@ -27,14 +31,16 @@ export function getFilePathsInFolder(
 
 export async function storeFilePathsInFolders(
     folderPaths?: string[],
-    deepSearch?: boolean
+    options: SearchOptions = {
+        deepSearch: true
+    }
 ): Promise<void> {
     if (!folderPaths) {
         folderPaths = await workspaceFolders();
     }
 
     const filePaths = folderPaths.flatMap((path) =>
-        getFilePathsInFolder(path, deepSearch)
+        getFilePathsInFolder(path, options)
     );
 
     saveFilePaths(filePaths);
