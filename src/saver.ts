@@ -1,4 +1,4 @@
-import { readdirSync, statSync } from "fs";
+import { readdir, stat } from "fs/promises";
 import { sep } from "path";
 import { saveFilePaths } from "./storage";
 import { workspaceFolders } from "./utilities";
@@ -7,22 +7,26 @@ export interface SearchOptions {
     deepSearch?: boolean;
 }
 
-export function getFilePathsInFolder(
+async function getFilePathsInFolder(
     folderPath: string,
     options: SearchOptions
-): string[] {
-    if (!statSync(folderPath).isDirectory()) {
+): Promise<string[]> {
+    const stats = await stat(folderPath);
+    if (!stats.isDirectory()) {
         throw new Error("Folder path is invalid: " + folderPath);
     }
 
     const allFiles: string[] = [];
 
-    for (const name of readdirSync(folderPath)) {
+    for (const name of await readdir(folderPath)) {
         const fullPath = folderPath + sep + name;
-        if (name.includes(".") && statSync(fullPath).isFile()) {
+        const stats = await stat(fullPath);
+
+        if (stats.isFile()) {
             allFiles.push(fullPath);
-        } else if (options.deepSearch && statSync(fullPath).isDirectory()) {
-            allFiles.push(...getFilePathsInFolder(fullPath, options));
+        } else if (options.deepSearch && stats.isDirectory()) {
+            const deepPaths = await getFilePathsInFolder(fullPath, options);
+            allFiles.push(...deepPaths);
         }
     }
 
@@ -39,9 +43,17 @@ export async function storeFilePathsInFolders(
         folderPaths = await workspaceFolders();
     }
 
-    const filePaths = folderPaths.flatMap((path) =>
-        getFilePathsInFolder(path, options)
+    if (folderPaths.length === 1) {
+        const filePaths = await getFilePathsInFolder(folderPaths[0], options);
+        saveFilePaths(filePaths);
+        return;
+    }
+
+    const filePaths = await Promise.all(
+        folderPaths.map(
+            async (path) => await getFilePathsInFolder(path, options)
+        )
     );
 
-    saveFilePaths(filePaths);
+    saveFilePaths(filePaths.flat());
 }
