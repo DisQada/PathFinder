@@ -10,16 +10,16 @@
         "commit": "git-cz",
         "semantic-release": "semantic-release"
     },
-    "main": "./dist/index.js",
-    "module": "./dist/index.js",
-    "types": "./types/index.d.ts",
+    "main": "./dist/exports.js",
+    "module": "./dist/exports.js",
+    "types": "./types/exports.d.ts",
     "exports": {
         ".": {
-            "node": "./dist/index.js",
-            "require": "./dist/index.js",
-            "import": "./dist/index.js",
-            "types": "./types/index.d.ts",
-            "default": "./dist/index.js"
+            "node": "./dist/exports.js",
+            "require": "./dist/exports.js",
+            "import": "./dist/exports.js",
+            "types": "./types/exports.d.ts",
+            "default": "./dist/exports.js"
         }
     },
     "files": [
