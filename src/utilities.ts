@@ -1,14 +1,16 @@
-import { readdirSync, statSync } from "fs";
-import { resolve } from "path";
+import { readdir } from "fs/promises";
 
 export async function workspaceFolders(): Promise<string[]> {
-    let folderNames: string[] = readdirSync(resolve());
-    folderNames = folderNames.filter(
-        (folderName: string) =>
-            !folderName.includes(".") &&
-            !folderName.includes("_") &&
-            statSync(folderName).isDirectory()
+    const invalidNameRegExp = /[._]/;
+
+    const folderNames = await readdir(process.cwd(), {
+        withFileTypes: true
+    });
+
+    const validFolderNames = folderNames.filter(
+        (folderName) =>
+            !invalidNameRegExp.test(folderName.name) && folderName.isDirectory()
     );
 
-    return folderNames;
+    return validFolderNames.map((folderName) => folderName.name);
 }
