@@ -10,7 +10,7 @@ export default defineConfig({
             reporter: ["text"],
             provider: "c8",
             include: ["dist"],
-            exclude: ["**/index.{js,ts}"]
+            exclude: ["**/index.{js,ts}", "**/exports.{js,ts}"]
         }
     }
 });
