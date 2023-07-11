@@ -1,28 +1,24 @@
 import { FilePath } from "./types/filePath";
 
-const filePaths = new Map<string, FilePath[]>();
+const filePaths: FilePath[] = [];
 
-export function getPaths(): Map<string, FilePath[]> {
+export function getPaths(): FilePath[] {
     return filePaths;
+}
+
+export function savedFilePath(path: string): boolean {
+    return filePaths.some((fp) => fp.fullPath === path);
 }
 
 export function saveFilePaths(paths: string[]): void {
     for (let i = 0; i < paths.length; i++) {
-        const filePath = new FilePath(paths[i]);
+        const path = paths[i];
 
-        let exists = false;
-        let arr = filePaths.get(filePath.name);
-
-        if (arr) {
-            exists = arr.some((path) => path.fullPath === filePath.fullPath);
-            if (exists) {
-                continue;
-            }
-        } else {
-            arr = [];
+        if (savedFilePath(path)) {
+            continue;
         }
 
-        arr.push(filePath);
-        filePaths.set(filePath.name, arr);
+        const filePath = new FilePath(path);
+        filePaths.push(filePath);
     }
 }
