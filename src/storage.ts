@@ -6,15 +6,15 @@ export function getPaths(): FilePath[] {
     return filePaths;
 }
 
-export function savedFilePath(path: string): boolean {
+export function storedPath(path: string): boolean {
     return filePaths.some((fp) => fp.fullPath === path);
 }
 
-export function saveFilePaths(paths: string[]): void {
+export function storePaths(paths: string[]): void {
     for (let i = 0; i < paths.length; i++) {
         const path = paths[i];
 
-        if (savedFilePath(path)) {
+        if (storedPath(path)) {
             continue;
         }
 

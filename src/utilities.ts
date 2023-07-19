@@ -1,6 +1,6 @@
 import { readdir } from "fs/promises";
 
-export async function workspaceFolders(): Promise<string[]> {
+export async function readWorkspaceFolderNames(): Promise<string[]> {
     const invalidNameRegExp = /[._]/;
 
     const folderNames = await readdir(process.cwd(), {

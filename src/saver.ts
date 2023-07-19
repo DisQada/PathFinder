@@ -1,13 +1,13 @@
 import { readdir, stat } from "fs/promises";
 import { sep } from "path";
-import { saveFilePaths } from "./storage";
-import { workspaceFolders } from "./utilities";
+import { storePaths } from "./storage";
+import { readWorkspaceFolderNames } from "./utilities";
 
 export interface SearchOptions {
     deepSearch?: boolean;
 }
 
-async function getFilePathsInFolder(
+async function readFolderPaths(
     folderPath: string,
     options: SearchOptions
 ): Promise<string[]> {
@@ -25,7 +25,7 @@ async function getFilePathsInFolder(
         if (stats.isFile()) {
             allFiles.push(fullPath);
         } else if (options.deepSearch && stats.isDirectory()) {
-            const deepPaths = await getFilePathsInFolder(fullPath, options);
+            const deepPaths = await readFolderPaths(fullPath, options);
             allFiles.push(...deepPaths);
         }
     }
@@ -33,27 +33,25 @@ async function getFilePathsInFolder(
     return allFiles;
 }
 
-export async function storeFilePathsInFolders(
+export async function storeFolderPaths(
     folderPaths?: string[],
     options: SearchOptions = {
         deepSearch: true
     }
 ): Promise<void> {
     if (!folderPaths) {
-        folderPaths = await workspaceFolders();
+        folderPaths = await readWorkspaceFolderNames();
     }
 
     if (folderPaths.length === 1) {
-        const filePaths = await getFilePathsInFolder(folderPaths[0], options);
-        saveFilePaths(filePaths);
+        const filePaths = await readFolderPaths(folderPaths[0], options);
+        storePaths(filePaths);
         return;
     }
 
     const filePaths = await Promise.all(
-        folderPaths.map(
-            async (path) => await getFilePathsInFolder(path, options)
-        )
+        folderPaths.map(async (path) => await readFolderPaths(path, options))
     );
 
-    saveFilePaths(filePaths.flat());
+    storePaths(filePaths.flat());
 }
