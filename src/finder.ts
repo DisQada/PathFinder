@@ -1,4 +1,4 @@
-import { getPaths } from "./storage";
+import { getPaths } from "./safe";
 import { FilePath } from "./types/filePath";
 
 export interface filterOptions {
