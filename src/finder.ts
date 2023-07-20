@@ -1,12 +1,6 @@
+import { filterOptions } from "./helper/interfaces";
 import { getPaths } from "./safe";
 import { FilePath } from "./types/filePath";
-
-export interface filterOptions {
-    name?: string | RegExp;
-    extension?: string | RegExp;
-    folder?: string | RegExp;
-    root?: string | RegExp;
-}
 
 export function findPaths(options?: filterOptions): FilePath[] {
     function test(path: FilePath, propertyName: string) {
