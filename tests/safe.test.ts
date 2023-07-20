@@ -1,7 +1,7 @@
 import { resolve } from "path";
 import { describe, expect, test } from "vitest";
+import { FilePath } from "../dist/class/filePath";
 import { getPaths, setPaths } from "../dist/safe";
-import { FilePath } from "../dist/types/filePath";
 
 const myPath = resolve("tests/safe.test.ts");
 

@@ -1,9 +1,9 @@
-import type { filterOptions } from "../src/helper/interfaces";
+import type { filterOptions } from "../../src/class/interfaces";
 
 import { describe, expect, test } from "vitest";
-import { findPath, findPaths } from "../dist/finder";
-import { storeFolderPaths } from "../dist/storer";
-import { FilePath } from "../dist/types/filePath";
+import { FilePath } from "../../dist/class/filePath";
+import { findPath, findPaths } from "../../dist/func/finder";
+import { storeFolderPaths } from "../../dist/func/storer";
 
 describe("findPath function", async () => {
     await storeFolderPaths(["dist", "tests"]);

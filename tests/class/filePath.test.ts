@@ -1,6 +1,6 @@
 import { resolve, sep } from "node:path";
 import { describe, expect, test } from "vitest";
-import { FilePath } from "../../dist/types/filePath";
+import { FilePath } from "../../dist/class/filePath";
 
 describe("Instantiation with an invalid path", () => {
     test("Absolute invalid file path", () => {
@@ -20,7 +20,7 @@ describe("Instantiation with an invalid path", () => {
     });
 
     test("Absolute valid directory path", () => {
-        const myPath = "tests/types";
+        const myPath = "tests/class";
 
         expect(() => {
             new FilePath(myPath);
@@ -30,7 +30,7 @@ describe("Instantiation with an invalid path", () => {
 
 describe("Instantiation with a valid absolute path", () => {
     test("Deep file path", () => {
-        const myPath = "tests/types/filePath.test.ts";
+        const myPath = "tests/class/filePath.test.ts";
         const resolved = resolve(myPath);
         const filePath = new FilePath(myPath);
 
@@ -39,11 +39,11 @@ describe("Instantiation with a valid absolute path", () => {
         expect(filePath.fullPath).toEqual(resolved);
         expect(filePath.fullName).toEqual("filePath.test.ts");
 
-        const index = resolved.indexOf("types");
+        const index = resolved.indexOf("class");
         const root = resolved.substring(0, index - 1);
 
         expect(filePath.root).toEqual(root);
-        expect(filePath.folder).toEqual("types");
+        expect(filePath.folder).toEqual("class");
         expect(filePath.name).toEqual("filePath");
         expect(filePath.extension).toEqual("test.ts");
     });

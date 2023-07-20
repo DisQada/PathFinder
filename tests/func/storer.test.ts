@@ -1,8 +1,12 @@
-import type { SearchOptions } from "../src/helper/interfaces";
+import type { SearchOptions } from "../../src/class/interfaces";
 
 import { resolve } from "path";
 import { describe, expect, test } from "vitest";
-import { storeFolderPaths, storePaths, storedPath } from "../dist/storer";
+import {
+    storeFolderPaths,
+    storePaths,
+    storedPath
+} from "../../dist/func/storer";
 
 const folderNames = ["dist", "tests"];
 const myPath = resolve("tests/safe.test.ts");

@@ -1,7 +1,10 @@
 import { resolve } from "path";
 import { describe, expect, test } from "vitest";
-import { readFolderPaths, readWorkspaceFolderNames } from "../dist/readers";
-import { SearchOptions } from "../src/helper/interfaces";
+import {
+    readFolderPaths,
+    readWorkspaceFolderNames
+} from "../../dist/func/readers";
+import { SearchOptions } from "../../src/class/interfaces";
 
 describe("readWorkspaceFolderNames function", async () => {
     test("Return array of valid folder names", async () => {
@@ -31,12 +34,7 @@ describe("readFolderPaths function", async () => {
             expect(typeof folderName).toBe("string");
         });
 
-        expect(paths).toEqual([
-            resolve("tests", "finder.test.ts"),
-            resolve("tests", "readers.test.ts"),
-            resolve("tests", "safe.test.ts"),
-            resolve("tests", "storer.test.ts")
-        ]);
+        expect(paths).toEqual([resolve("tests", "safe.test.ts")]);
     });
 
     test("With deepSearch", async () => {
@@ -54,11 +52,11 @@ describe("readFolderPaths function", async () => {
         });
 
         expect(paths).toEqual([
-            resolve("tests", "finder.test.ts"),
-            resolve("tests", "readers.test.ts"),
-            resolve("tests", "safe.test.ts"),
-            resolve("tests", "storer.test.ts"),
-            resolve("tests", "types", "filePath.test.ts")
+            resolve("tests", "class", "filePath.test.ts"),
+            resolve("tests", "func", "finder.test.ts"),
+            resolve("tests", "func", "readers.test.ts"),
+            resolve("tests", "func", "storer.test.ts"),
+            resolve("tests", "safe.test.ts")
         ]);
     });
 });
