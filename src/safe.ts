@@ -1,4 +1,4 @@
-import { FilePath } from "./types/filePath";
+import { FilePath } from "./class/filePath";
 
 let paths: FilePath[] = [];
 

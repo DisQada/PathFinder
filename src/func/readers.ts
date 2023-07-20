@@ -1,6 +1,6 @@
 import { readdir, stat } from "fs/promises";
 import { sep } from "path";
-import { SearchOptions } from "./helper/interfaces";
+import { SearchOptions } from "../class/interfaces";
 
 export async function readWorkspaceFolderNames(): Promise<string[]> {
     const invalidNameRegExp = /[._]/;

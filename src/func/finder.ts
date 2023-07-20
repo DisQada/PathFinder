@@ -1,6 +1,6 @@
-import { filterOptions } from "./helper/interfaces";
-import { getPaths } from "./safe";
-import { FilePath } from "./types/filePath";
+import { FilePath } from "../class/filePath";
+import { filterOptions } from "../class/interfaces";
+import { getPaths } from "../safe";
 
 export function findPaths(options?: filterOptions): FilePath[] {
     function test(path: FilePath, propertyName: string) {

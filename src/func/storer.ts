@@ -1,7 +1,7 @@
-import { SearchOptions } from "./helper/interfaces";
+import { FilePath } from "../class/filePath";
+import { SearchOptions } from "../class/interfaces";
+import { getPaths, setPaths } from "../safe";
 import { readFolderPaths, readWorkspaceFolderNames } from "./readers";
-import { getPaths, setPaths } from "./safe";
-import { FilePath } from "./types/filePath";
 
 export function storedPath(path: string): boolean {
     return getPaths().some((fp) => fp.fullPath === path);
