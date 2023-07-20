@@ -1,6 +1,29 @@
 import { SearchOptions } from "./helper/interfaces";
-import { storePaths } from "./storage";
-import { readFolderPaths, readWorkspaceFolderNames } from "./utilities";
+import { readFolderPaths, readWorkspaceFolderNames } from "./readers";
+import { getPaths, setPaths } from "./storage";
+import { FilePath } from "./types/filePath";
+
+export function storedPath(path: string): boolean {
+    return getPaths().some((fp) => fp.fullPath === path);
+}
+
+export function storePaths(paths: string[]): void {
+    const newPaths: FilePath[] = getPaths();
+
+    const length = paths.length;
+    for (let i = 0; i < length; i++) {
+        const path = paths[i];
+
+        if (storedPath(path)) {
+            continue;
+        }
+
+        const filePath = new FilePath(path);
+        newPaths.push(filePath);
+    }
+
+    setPaths(newPaths);
+}
 
 export async function storeFolderPaths(
     folderPaths?: string[],
