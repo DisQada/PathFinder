@@ -1,6 +1,6 @@
 import { SearchOptions } from "./helper/interfaces";
 import { readFolderPaths, readWorkspaceFolderNames } from "./readers";
-import { getPaths, setPaths } from "./storage";
+import { getPaths, setPaths } from "./safe";
 import { FilePath } from "./types/filePath";
 
 export function storedPath(path: string): boolean {
