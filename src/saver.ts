@@ -1,11 +1,8 @@
 import { readdir, stat } from "fs/promises";
 import { sep } from "path";
+import { SearchOptions } from "./helper/interfaces";
 import { storePaths } from "./storage";
 import { readWorkspaceFolderNames } from "./utilities";
-
-export interface SearchOptions {
-    deepSearch?: boolean;
-}
 
 async function readFolderPaths(
     folderPath: string,
