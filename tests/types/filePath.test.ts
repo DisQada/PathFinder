@@ -1,32 +1,40 @@
-import { resolve, sep } from "path";
-import { expect, test } from "vitest";
+import { resolve, sep } from "node:path";
+import { describe, expect, test } from "vitest";
 import { FilePath } from "../../dist/types/filePath";
 
-test("Invalid path", () => {
-    let myPath = "tests/fake.test.ts";
+describe("Instantiation with an invalid path", () => {
+    test("Absolute invalid file path", () => {
+        const myPath = "tests/fake.test.ts";
 
-    try {
-        new FilePath(myPath);
-    } catch (err) {
-        expect(err).toBeInstanceOf(Error);
-    }
+        expect(() => {
+            new FilePath(myPath);
+        }).toThrow();
+    });
 
-    myPath = "../saver.test.ts";
+    test("Relative invalid file path", () => {
+        const myPath = "../saver.test.ts";
 
-    try {
-        new FilePath(myPath);
-    } catch (err) {
-        expect(err).toBeInstanceOf(Error);
-    }
+        expect(() => {
+            new FilePath(myPath);
+        }).toThrow();
+    });
+
+    test("Absolute valid directory path", () => {
+        const myPath = "tests/types";
+
+        expect(() => {
+            new FilePath(myPath);
+        }).toThrow();
+    });
 });
 
-test("Class instantiating", () => {
-    {
+describe("Instantiation with a valid absolute path", () => {
+    test("Deep file path", () => {
         const myPath = "tests/types/filePath.test.ts";
         const resolved = resolve(myPath);
         const filePath = new FilePath(myPath);
 
-        expect(filePath).to.be.an("object");
+        expect(typeof filePath).toBe("object");
 
         expect(filePath.fullPath).toEqual(resolved);
         expect(filePath.fullName).toEqual("filePath.test.ts");
@@ -38,14 +46,14 @@ test("Class instantiating", () => {
         expect(filePath.folder).toEqual("types");
         expect(filePath.name).toEqual("filePath");
         expect(filePath.extension).toEqual("test.ts");
-    }
+    });
 
-    {
+    test("Workspace file path", () => {
         const myPath = "LICENSE";
         const resolved = resolve(myPath);
         const filePath = new FilePath(myPath);
 
-        expect(filePath).to.be.an("object");
+        expect(typeof filePath).toBe("object");
 
         expect(filePath.fullPath).toEqual(resolved);
         expect(filePath.fullName).toEqual("LICENSE");
@@ -57,41 +65,35 @@ test("Class instantiating", () => {
         expect(filePath.folder).toEqual("pathfinder");
         expect(filePath.name).toEqual("LICENSE");
         expect(filePath.extension).toEqual("");
-    }
+    });
 });
 
-test("Relative path", () => {
+describe("Instantiation with a valid relative path", () => {
     function innerTest(filePath: FilePath, resolved: string) {
-        expect(filePath).to.be.an("object");
+        expect(typeof filePath).toBe("object");
 
         expect(filePath.fullPath).toEqual(resolved);
-        expect(filePath.fullName).toEqual("saver.test.ts");
+        expect(filePath.fullName).toEqual("safe.test.ts");
 
         const index = resolved.indexOf("tests");
         const root = resolved.substring(0, index - 1);
+
         expect(filePath.root).toEqual(root);
         expect(filePath.folder).toEqual("tests");
-        expect(filePath.name).toEqual("saver");
+        expect(filePath.name).toEqual("safe");
         expect(filePath.extension).toEqual("test.ts");
     }
 
-    const myPath = "../saver.test.ts";
+    const myPath = "../safe.test.ts";
     const resolved = resolve(__dirname, myPath);
-    let filePath = new FilePath(resolved);
 
-    innerTest(filePath, resolved);
+    test("Relative path", () => {
+        const filePath = new FilePath(resolved);
+        innerTest(filePath, resolved);
+    });
 
-    filePath = new FilePath(myPath, __dirname);
-
-    innerTest(filePath, resolved);
-});
-
-test("Directory path", () => {
-    const myPath = "tests/types";
-
-    try {
-        new FilePath(myPath);
-    } catch (err) {
-        expect(err).toBeInstanceOf(Error);
-    }
+    test("Relative path", () => {
+        const filePath = new FilePath(myPath, __dirname);
+        innerTest(filePath, resolved);
+    });
 });
