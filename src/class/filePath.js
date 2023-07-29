@@ -1,13 +1,13 @@
-import { statSync } from "fs";
-import { isAbsolute, resolve, sep } from "path";
+const { statSync } = require("fs");
+const { isAbsolute, resolve, sep } = require("path");
 
-export class FilePath {
-    name: string;
-    folder: string;
-    extension: string;
-    root: string;
+class FilePath {
+    name;
+    folder;
+    extension;
+    root;
 
-    public constructor(filePath: string, relativeTo?: string) {
+    constructor(filePath, relativeTo) {
         if (!isAbsolute(filePath)) {
             if (relativeTo) {
                 filePath = resolve(relativeTo, filePath);
@@ -23,7 +23,7 @@ export class FilePath {
 
         const parts = filePath.split(sep);
 
-        const fullName = parts.pop() || "";
+        const fullName = parts.pop();
         const index = fullName.indexOf(".");
 
         if (index === -1) {
@@ -34,18 +34,22 @@ export class FilePath {
             this.extension = fullName.substring(index + 1);
         }
 
-        this.folder = parts.pop() || "";
+        this.folder = parts.pop();
         this.root = parts.join(sep);
     }
 
-    public get fullName(): string {
+    get fullName() {
         if (this.extension === "") {
             return this.name;
         }
 
         return this.name + "." + this.extension;
     }
-    public get fullPath(): string {
+    get fullPath() {
         return this.root + sep + this.folder + sep + this.fullName;
     }
 }
+
+module.exports = {
+    FilePath
+};

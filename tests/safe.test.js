@@ -1,9 +1,8 @@
-import { resolve } from "path";
-import { describe, expect, test } from "vitest";
-import { FilePath } from "../dist/class/filePath";
-import { getPaths, setPaths } from "../dist/safe";
+const { resolve } = require("path");
+const { FilePath } = require("../src/class/filePath");
+const { getPaths, setPaths } = require("../src/safe");
 
-const myPath = resolve("tests/safe.test.ts");
+const myPath = resolve("tests/safe.test.js");
 
 describe("Set stored paths", () => {
     test("", () => {
@@ -18,9 +17,10 @@ describe("Set stored paths", () => {
 describe("Get stored paths", () => {
     test("", () => {
         const paths = getPaths();
-        expect(paths).toBeInstanceOf(Array<FilePath>);
+        expect(Array.isArray(paths)).toBeTruthy();
 
         const fp = paths[0];
+        expect(fp).toBeInstanceOf(FilePath);
         expect(fp.fullPath).toEqual(myPath);
     });
 });

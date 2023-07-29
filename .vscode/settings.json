@@ -8,5 +8,6 @@
         "source.organizeImports": true
     },
 
-    "cSpell.words": ["analyzer", "disqada", "github", "prerelease"]
+    "javascript.implicitProjectConfig.checkJS": true
+    // can add @ts-check on the top of a file
 }

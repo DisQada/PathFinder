@@ -5,25 +5,26 @@
     "scripts": {
         "build": "tsc",
         "build:watch": "tsc -w",
-        "test": "cls & npm run build & vitest run",
+        "test": "jest",
+        "doc": "jsdoc -c jsdoc.json",
         "format": "prettier . --write & eslint . --fix",
         "commit": "git-cz",
         "semantic-release": "semantic-release"
     },
-    "main": "./dist/exports.js",
-    "module": "./dist/exports.js",
+    "main": "./src/exports.js",
+    "module": "./src/exports.js",
     "types": "./types/exports.d.ts",
     "exports": {
         ".": {
-            "node": "./dist/exports.js",
-            "require": "./dist/exports.js",
-            "import": "./dist/exports.js",
+            "node": "./src/exports.js",
+            "require": "./src/exports.js",
+            "import": "./src/exports.js",
             "types": "./types/exports.d.ts",
-            "default": "./dist/exports.js"
+            "default": "./src/exports.js"
         }
     },
     "files": [
-        "dist/",
+        "src/",
         "types/",
         "CHANGELOG.md"
     ],
@@ -56,16 +57,14 @@
         "@semantic-release/changelog": "^6.0.3",
         "@semantic-release/git": "^10.0.1",
         "@types/node": "^18.15.11",
-        "@typescript-eslint/eslint-plugin": "^5.59.0",
-        "@typescript-eslint/parser": "^5.59.0",
         "@vitest/coverage-c8": "^0.29.8",
         "commitizen": "^4.3.0",
         "cz-conventional-changelog": "^3.3.0",
         "eslint": "^8.39.0",
+        "jest": "^29.6.2",
+        "jsdoc": "^4.0.2",
         "prettier": "^2.8.8",
-        "semantic-release": "^21.0.1",
-        "typescript": "^5.0.4",
-        "vitest": "^0.29.8"
+        "semantic-release": "^21.0.1"
     },
     "publishConfig": {
         "access": "public"

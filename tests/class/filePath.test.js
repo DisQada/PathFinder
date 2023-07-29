@@ -1,10 +1,9 @@
-import { resolve, sep } from "node:path";
-import { describe, expect, test } from "vitest";
-import { FilePath } from "../../dist/class/filePath";
+const { resolve, sep } = require("node:path");
+const { FilePath } = require("../../src/class/filePath");
 
 describe("Instantiation with an invalid path", () => {
     test("Absolute invalid file path", () => {
-        const myPath = "tests/fake.test.ts";
+        const myPath = "tests/fake.test.js";
 
         expect(() => {
             new FilePath(myPath);
@@ -12,7 +11,7 @@ describe("Instantiation with an invalid path", () => {
     });
 
     test("Relative invalid file path", () => {
-        const myPath = "../saver.test.ts";
+        const myPath = "../saver.test.js";
 
         expect(() => {
             new FilePath(myPath);
@@ -30,14 +29,14 @@ describe("Instantiation with an invalid path", () => {
 
 describe("Instantiation with a valid absolute path", () => {
     test("Deep file path", () => {
-        const myPath = "tests/class/filePath.test.ts";
+        const myPath = "tests/class/filePath.test.js";
         const resolved = resolve(myPath);
         const filePath = new FilePath(myPath);
 
         expect(typeof filePath).toBe("object");
 
         expect(filePath.fullPath).toEqual(resolved);
-        expect(filePath.fullName).toEqual("filePath.test.ts");
+        expect(filePath.fullName).toEqual("filePath.test.js");
 
         const index = resolved.indexOf("class");
         const root = resolved.substring(0, index - 1);
@@ -45,7 +44,7 @@ describe("Instantiation with a valid absolute path", () => {
         expect(filePath.root).toEqual(root);
         expect(filePath.folder).toEqual("class");
         expect(filePath.name).toEqual("filePath");
-        expect(filePath.extension).toEqual("test.ts");
+        expect(filePath.extension).toEqual("test.js");
     });
 
     test("Workspace file path", () => {
@@ -69,11 +68,16 @@ describe("Instantiation with a valid absolute path", () => {
 });
 
 describe("Instantiation with a valid relative path", () => {
-    function innerTest(filePath: FilePath, resolved: string) {
+    /**
+     *
+     * @param {FilePath} filePath
+     * @param {string} resolved
+     */
+    function innerTest(filePath, resolved) {
         expect(typeof filePath).toBe("object");
 
         expect(filePath.fullPath).toEqual(resolved);
-        expect(filePath.fullName).toEqual("safe.test.ts");
+        expect(filePath.fullName).toEqual("safe.test.js");
 
         const index = resolved.indexOf("tests");
         const root = resolved.substring(0, index - 1);
@@ -81,10 +85,10 @@ describe("Instantiation with a valid relative path", () => {
         expect(filePath.root).toEqual(root);
         expect(filePath.folder).toEqual("tests");
         expect(filePath.name).toEqual("safe");
-        expect(filePath.extension).toEqual("test.ts");
+        expect(filePath.extension).toEqual("test.js");
     }
 
-    const myPath = "../safe.test.ts";
+    const myPath = "../safe.test.js";
     const resolved = resolve(__dirname, myPath);
 
     test("Relative path", () => {

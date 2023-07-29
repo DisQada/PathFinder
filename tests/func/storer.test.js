@@ -1,15 +1,12 @@
-import type { SearchOptions } from "../../src/class/interfaces";
-
-import { resolve } from "path";
-import { describe, expect, test } from "vitest";
-import {
+const { resolve } = require("path");
+const {
     storeFolderPaths,
     storePaths,
     storedPath
-} from "../../dist/func/storer";
+} = require("../../src/func/storer");
 
-const folderNames = ["dist", "tests"];
-const myPath = resolve("tests/safe.test.ts");
+const folderNames = ["src", "tests"];
+const myPath = resolve("tests/safe.test.js");
 
 describe("storeFolderPaths functions", () => {
     test("", async () => {
@@ -26,7 +23,8 @@ describe("storeFolderPaths functions", () => {
 
     test("", async () => {
         expect(async () => {
-            const options: SearchOptions = {
+            /** @type {import("../../src/class/interfaces").SearchOptions} */
+            const options = {
                 deepSearch: true
             };
 

@@ -1,8 +1,11 @@
-import { readdir, stat } from "fs/promises";
-import { sep } from "path";
-import { SearchOptions } from "../class/interfaces";
+const { readdir, stat } = require("fs/promises");
+const { sep } = require("path");
 
-export async function readWorkspaceFolderNames(): Promise<string[]> {
+/**
+ * Get all folder names in the root directory of the workspace
+ * @return An array of the folder names
+ */
+async function readWorkspaceFolderNames() {
     const invalidNameRegExp = /[._]/;
 
     const folderNames = await readdir(process.cwd(), {
@@ -17,16 +20,19 @@ export async function readWorkspaceFolderNames(): Promise<string[]> {
     return validFolderNames.map((folderName) => folderName.name);
 }
 
-export async function readFolderPaths(
-    folderPath: string,
-    options: SearchOptions
-): Promise<string[]> {
+/**
+ * Get all paths inside a folder path
+ * @param {string} folderPath The path of the folder to read
+ * @param {module:interfaces.SearchOptions} options Whether to read subfolders or not
+ * @return {Promise<string[]>} An array of paths
+ */
+async function readFolderPaths(folderPath, options) {
     const stats = await stat(folderPath);
     if (!stats.isDirectory()) {
         throw new Error("Folder path is invalid: " + folderPath);
     }
 
-    const allFiles: string[] = [];
+    const allFiles = [];
 
     for (const name of await readdir(folderPath)) {
         const fullPath = folderPath + sep + name;
@@ -42,3 +48,8 @@ export async function readFolderPaths(
 
     return allFiles;
 }
+
+module.exports = {
+    readWorkspaceFolderNames,
+    readFolderPaths
+};
