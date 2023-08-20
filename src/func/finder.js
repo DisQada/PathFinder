@@ -1,20 +1,33 @@
+/**
+ * Set of functions for finding paths using filtering options.
+ * @file
+ * @ignore
+ */
+
 const { getPaths } = require("../safe");
 
 /**
- * set of functions for finding paths using filtering options
- * @module Finder
+ * Set of functions for finding paths using filtering options.
+ * @module
  */
 
 /**
- * test - see {@link FilterOptions} yes
- * test - don't forget to check {@tutorial example-tutorial} yes
- * @param {module:interfaces.FilterOptions} options if options is null, all the paths will be returned
- * @return {import("../class/filePath").FilePath[]} if no paths found, an empty array will be returned
+ * Find all stored paths with filtering.
+ * @param {options.FilterOptions} options - If options is null, all the paths will be returned.
+ * @returns {FilePath[]} - If no paths found, an empty array will be returned.
+ * @example <caption>will return all stored js files</caption>
+ * findPaths({ extension: "js" });
+ * @example <caption>will return all stored js and jsx files</caption>
+ * findPaths({ extension: /^jsx?$/ });
  */
 function findPaths(options) {
     /**
-     * @param {import("../class/filePath").FilePath} path
-     * @param {string} propertyName
+     * Check if the given path matches the filter options on a single property level.
+     * @param {FilePath} path - The path to check it's property.
+     * @param {string} propertyName - The level in the path to check.
+     * @returns {boolean} - True if matches, false otherwise.
+     * @example
+     * test("src/example.js", "name");
      */
     function test(path, propertyName) {
         const property = options?.[propertyName] || undefined;
@@ -45,9 +58,12 @@ function findPaths(options) {
 }
 
 /**
- * Search for the first stored FilePath matching the given filter options
- * @param {module:interfaces.FilterOptions} options Path's search filter options
- * @return {import("../class/filePath").FilePath | undefined} The FilePath if found, otherwise undefined
+ * Search for the first stored FilePath matching the given filter options.
+ * @param {options.FilterOptions} options - Path's search filter options.
+ * @returns {FilePath | undefined} - The FilePath if found, otherwise undefined.
+ * @example <caption>will return the first file called "example"</caption>
+ * const filePath = findPath({ name: "example" });
+ * const { ... } = require(filePath);
  */
 function findPath(options) {
     return findPaths(options)[0];

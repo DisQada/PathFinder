@@ -69,9 +69,11 @@ describe("Instantiation with a valid absolute path", () => {
 
 describe("Instantiation with a valid relative path", () => {
     /**
-     *
-     * @param {FilePath} filePath
-     * @param {string} resolved
+     * A shortcut for repeated code.
+     * @param {FilePath} filePath - The string path of the file.
+     * @param {string} resolved - The resolved path of the original file.
+     * @example
+     * innerTest("./example.js", path.resolve(__dirname))
      */
     function innerTest(filePath, resolved) {
         expect(typeof filePath).toBe("object");
@@ -91,7 +93,7 @@ describe("Instantiation with a valid relative path", () => {
     const myPath = "../safe.test.js";
     const resolved = resolve(__dirname, myPath);
 
-    test("Relative path", () => {
+    test("Absolute path", () => {
         const filePath = new FilePath(resolved);
         innerTest(filePath, resolved);
     });

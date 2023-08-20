@@ -1,9 +1,23 @@
+/**
+ * Set of functions for reading paths using search options.
+ * @file
+ * @ignore
+ */
+
 const { readdir, stat } = require("fs/promises");
 const { sep } = require("path");
 
 /**
- * Get all folder names in the root directory of the workspace
- * @return An array of the folder names
+ * Set of functions for reading paths using search options.
+ * @module
+ */
+
+/**
+ * Get all folder names in the root directory of the workspace.
+ * The function will automatically ignore all directories with a dot (.) or an underscore (_).
+ * @returns {Promise<string[]>} - An array of the folder names.
+ * @example <caption>If the top level folders are "src", "dist", "node_modules" and ".git", then it will return ["src", "dist"];</caption>
+ * const folderNames = readWorkspaceFolderNames();
  */
 async function readWorkspaceFolderNames() {
     const invalidNameRegExp = /[._]/;
@@ -21,10 +35,14 @@ async function readWorkspaceFolderNames() {
 }
 
 /**
- * Get all paths inside a folder path
- * @param {string} folderPath The path of the folder to read
- * @param {module:interfaces.SearchOptions} options Whether to read subfolders or not
- * @return {Promise<string[]>} An array of paths
+ * Get all paths inside a folder path.
+ * @param {string} folderPath - The path of the folder to read.
+ * @param {options.SearchOptions} options - Whether to read subfolders or not.
+ * @returns {Promise<string[]>} An array of paths.
+ * @example
+ * const paths = readFolderPaths(["src"]);
+ * @example
+ * const paths = readFolderPaths(["src"], { deepSearch = true });
  */
 async function readFolderPaths(folderPath, options) {
     const stats = await stat(folderPath);

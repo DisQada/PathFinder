@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Module: func/finder</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Module: func/finder</h1>
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+            <div class="description"><p>Set of functions for finding paths using filtering options.</p></div>
+        
+
+        
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="func_finder.js.html">func/finder.js</a>, <a href="func_finder.js.html#line9">line 9</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="~findPath"><span class="type-signature">(inner) </span>findPath<span class="signature">(options)</span><span class="type-signature"> &rarr; {<a href="FilePath.html">FilePath</a>|undefined}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Search for the first stored FilePath matching the given filter options.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="options.html#.FilterOptions">options.FilterOptions</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Path's search filter options.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="func_finder.js.html">func/finder.js</a>, <a href="func_finder.js.html#line68">line 68</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <ul>
+<li>The FilePath if found, otherwise undefined.</li>
+</ul>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="FilePath.html">FilePath</a></span>
+|
+
+<span class="param-type">undefined</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+        <p class="code-caption">will return the first file called "example"</p>
+    
+    <pre class="prettyprint"><code>const filePath = findPath({ name: "example" });const { ... } = require(filePath);</code></pre>
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="~findPaths"><span class="type-signature">(inner) </span>findPaths<span class="signature">(options)</span><span class="type-signature"> &rarr; {Array.&lt;<a href="FilePath.html">FilePath</a>>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Find all stored paths with filtering.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="options.html#.FilterOptions">options.FilterOptions</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>If options is null, all the paths will be returned.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="func_finder.js.html">func/finder.js</a>, <a href="func_finder.js.html#line23">line 23</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <ul>
+<li>If no paths found, an empty array will be returned.</li>
+</ul>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array.&lt;<a href="FilePath.html">FilePath</a>></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+    <h5>Examples</h5>
+    
+        <p class="code-caption">will return all stored js files</p>
+    
+    <pre class="prettyprint"><code>findPaths({ extension: "js" });</code></pre>
+
+        <p class="code-caption">will return all stored js and jsx files</p>
+    
+    <pre class="prettyprint"><code>findPaths({ extension: /^jsx?$/ });</code></pre>
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-func_finder.html">func/finder</a></li><li><a href="module-func_readers.html">func/readers</a></li><li><a href="module-func_storer.html">func/storer</a></li><li><a href="module-safe.html">safe</a></li></ul><h3>Namespaces</h3><ul><li><a href="options.html">options</a></li></ul><h3>Classes</h3><ul><li><a href="FilePath.html">FilePath</a></li></ul><h3>Tutorials</h3><ul><li><a href="tutorial-setup.html">Getting started</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Sun Aug 20 2023 11:28:22 GMT+0800 (Singapore Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

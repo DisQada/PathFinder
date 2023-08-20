@@ -3,7 +3,6 @@
     "exclude": ["types"],
     "compilerOptions": {
         "allowJs": true,
-        "checkJs": true,
 
         // Modules
         "module": "CommonJS",
