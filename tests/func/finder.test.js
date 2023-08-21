@@ -1,4 +1,3 @@
-const { beforeEach } = require("node:test");
 const { FilePath } = require("../../src/class/filePath");
 const { findPath, findPaths } = require("../../src/func/finder");
 const { storeFolderPaths } = require("../../src/func/storer");
@@ -49,7 +48,7 @@ describe("findPaths function", () => {
 
         expect(Array.isArray(result)).toBeTruthy();
         expect(result[0]).toBeInstanceOf(FilePath);
-        expect(result.length).toEqual(21);
+        expect(result.length).toEqual(22);
     });
 
     test("Only one folder name", async () => {
@@ -69,7 +68,7 @@ describe("findPaths function", () => {
 
         expect(Array.isArray(result)).toBeTruthy();
         expect(result[0]).toBeInstanceOf(FilePath);
-        expect(result.length).toEqual(12);
+        expect(result.length).toEqual(13);
     });
 
     test("Not storing duplicates", async () => {
@@ -81,7 +80,7 @@ describe("findPaths function", () => {
 
         expect(Array.isArray(result)).toBeTruthy();
         expect(result[0]).toBeInstanceOf(FilePath);
-        expect(result.length).toEqual(12);
+        expect(result.length).toEqual(13);
     });
 
     test("Existing filter string options search", async () => {

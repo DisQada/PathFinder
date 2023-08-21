@@ -39,7 +39,10 @@ describe("readFolderPaths function", () => {
             expect(typeof folderName).toBe("string");
         });
 
-        expect(paths).toEqual([resolve("tests", "safe.test.js")]);
+        expect(paths).toEqual([
+            resolve("tests", ".eslintrc.json"),
+            resolve("tests", "safe.test.js")
+        ]);
     });
 
     test("With deepSearch", async () => {
@@ -59,6 +62,7 @@ describe("readFolderPaths function", () => {
         });
 
         expect(paths).toEqual([
+            resolve("tests", ".eslintrc.json"),
             resolve("tests", "class", "filePath.test.js"),
             resolve("tests", "func", "finder.test.js"),
             resolve("tests", "func", "readers.test.js"),
