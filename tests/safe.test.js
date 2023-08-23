@@ -4,18 +4,15 @@ const { getPaths, setPaths } = require("../src/safe");
 
 const myPath = resolve("tests/safe.test.js");
 
-describe("Set stored paths", () => {
-    test("", () => {
-        try {
-            setPaths([new FilePath(myPath)]);
-        } catch (err) {
-            expect(err).toBeUndefined();
-        }
+describe("storing new paths", () => {
+    test("directly", () => {
+        const result = setPaths([new FilePath(myPath)]);
+        expect(result).toBeUndefined();
     });
 });
 
 describe("Get stored paths", () => {
-    test("", () => {
+    test("directly", () => {
         const paths = getPaths();
         expect(Array.isArray(paths)).toBeTruthy();
 
