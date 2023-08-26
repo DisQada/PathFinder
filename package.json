@@ -3,7 +3,6 @@
     "version": "1.1.1",
     "description": "Easily find files in chosen directories in your project",
     "scripts": {
-        "build": "tsc",
         "test": "jest",
         "doc": "jsdoc -c jsdoc.json",
         "format": "prettier . --write",
@@ -13,19 +12,18 @@
     },
     "main": "./src/exports.js",
     "module": "./src/exports.js",
-    "types": "./types/exports.d.ts",
+    "types": "./src/exports.js",
     "exports": {
         ".": {
             "node": "./src/exports.js",
             "require": "./src/exports.js",
             "import": "./src/exports.js",
-            "types": "./types/exports.d.ts",
+            "types": "./src/exports.js",
             "default": "./src/exports.js"
         }
     },
     "files": [
         "src/",
-        "types/",
         "CHANGELOG.md"
     ],
     "homepage": "https://github.com/DisQada/pathfinder",

@@ -7,7 +7,7 @@
 const { readWorkspaceFolderNames, readFolderPaths } = require("./readers");
 const { getPaths, setPaths } = require("../safe");
 const { FilePath } = require("../class/filePath");
-const { SearchOptions } = require("../types/options");
+const { SearchOptions } = require("../interface/options");
 
 /**
  * Set of functions for storing paths.
