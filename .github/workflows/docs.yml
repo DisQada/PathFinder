@@ -1,0 +1,33 @@
+name: Generate documentation
+
+on:
+    release:
+        types: [published]
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+        permissions:
+            contents: write
+        concurrency:
+            group: ${{ github.workflow }}-${{ github.ref }}
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v3
+              with:
+                  fetch-depth: 0
+
+            - name: Build
+              uses: andstor/jsdoc-action@v1
+              with:
+                  source_dir: ./src
+                  output_dir: ./docs
+                  config_file: jsdoc.json
+                  template: minami
+                  front_page: README.md
+
+            - name: Deploy
+              uses: peaceiris/actions-gh-pages@v3
+              with:
+                  github_token: ${{ secrets.GITHUB_TOKEN }}
+                  publish_dir: ./docs
