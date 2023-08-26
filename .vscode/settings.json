@@ -8,5 +8,6 @@
         "source.organizeImports": true
     },
 
-    "js/ts.implicitProjectConfig.checkJs": true
+    "javascript.suggest.jsdoc.generateReturns": true,
+    "javascript.suggest.completeJSDocs": true
 }

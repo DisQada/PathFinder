@@ -5,15 +5,17 @@
  */
 
 const { getPaths } = require("../safe");
+const { FilePath } = require("../class/filePath");
+const { FilterOptions } = require("../interface/options");
 
 /**
  * Set of functions for finding paths using filtering options.
- * @module
+ * @module finder
  */
 
 /**
  * Find all stored paths with filtering.
- * @param {options.FilterOptions} options - If options is null, all the paths will be returned.
+ * @param {FilterOptions} options - If options is null, all the paths will be returned.
  * @returns {FilePath[]} - If no paths found, an empty array will be returned.
  * @example <caption>will return all stored js files</caption>
  * findPaths({ extension: "js" });
@@ -59,7 +61,7 @@ function findPaths(options) {
 
 /**
  * Search for the first stored FilePath matching the given filter options.
- * @param {options.FilterOptions} options - Path's search filter options.
+ * @param {FilterOptions} options - Path's search filter options.
  * @returns {FilePath | undefined} - The FilePath if found, otherwise undefined.
  * @example <caption>will return the first file called "example"</caption>
  * const filePath = findPath({ name: "example" });

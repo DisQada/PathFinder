@@ -10,7 +10,7 @@
     },
     "extends": ["eslint:recommended", "plugin:jsdoc/recommended-error"],
     "plugins": ["jsdoc"],
-    "ignorePatterns": ["**/node_modules/**", "**/types/**", "**/*.md"],
+    "ignorePatterns": ["**/node_modules/**", "**/docs/**", "**/*.md"],
     "rules": {
         "jsdoc/check-indentation": "warn",
         "jsdoc/check-line-alignment": "warn",
@@ -25,7 +25,6 @@
         "jsdoc/require-example": "error",
         "jsdoc/require-file-overview": "error",
         "jsdoc/require-hyphen-before-param-description": "error",
-        "jsdoc/require-throws": "error",
-        "jsdoc/sort-tags": "warn"
+        "jsdoc/require-throws": "error"
     }
 }

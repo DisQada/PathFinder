@@ -9,7 +9,7 @@ const { sep } = require("path");
 
 /**
  * Set of functions for reading paths using search options.
- * @module
+ * @module readers
  */
 
 /**

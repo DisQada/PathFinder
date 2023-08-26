@@ -4,14 +4,14 @@
  * @ignore
  */
 
-const { readFolderPaths } = require("./readers");
+const { readWorkspaceFolderNames, readFolderPaths } = require("./readers");
 const { getPaths, setPaths } = require("../safe");
 const { FilePath } = require("../class/filePath");
-const { readWorkspaceFolderNames } = require("./readers");
+const { SearchOptions } = require("../types/options");
 
 /**
  * Set of functions for storing paths.
- * @module
+ * @module storer
  */
 
 /**
@@ -53,7 +53,7 @@ function storePaths(paths) {
 /**
  * Save all file paths in specific folder.
  * @param {string[]} [folderPaths] - Folder path to search in.
- * @param {options.SearchOptions} options - Whether to search subfolders.
+ * @param {SearchOptions} options - Whether to search subfolders.
  * @returns {Promise<void>}
  * @example <caption></caption>
  * storeFolderPaths();

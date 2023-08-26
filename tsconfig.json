@@ -1,7 +1,8 @@
 {
-    "include": ["src"],
+    "include": ["src/interface"],
     "exclude": ["types"],
     "compilerOptions": {
+        // JavaScript
         "checkJs": true,
         "allowJs": true,
 
@@ -11,13 +12,13 @@
         "resolveJsonModule": true,
 
         // Emit
-        "noEmit": false,
         "declaration": true,
         "emitDeclarationOnly": true,
-        "noEmitOnError": true,
         "declarationDir": "types",
-        "preserveConstEnums": true,
+
+        // Other
         "removeComments": false,
-        "forceConsistentCasingInFileNames": true
+        "forceConsistentCasingInFileNames": true,
+        "preserveConstEnums": true
     }
 }

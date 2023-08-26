@@ -93,11 +93,13 @@ describe("Instantiation with a valid relative path", () => {
     const myPath = "../safe.test.js";
     const resolved = resolve(__dirname, myPath);
 
+    // eslint-disable-next-line jest/expect-expect
     test("Absolute path", () => {
         const filePath = new FilePath(resolved);
         innerTest(filePath, resolved);
     });
 
+    // eslint-disable-next-line jest/expect-expect
     test("Relative path", () => {
         const filePath = new FilePath(myPath, __dirname);
         innerTest(filePath, resolved);

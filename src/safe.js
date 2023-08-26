@@ -9,6 +9,8 @@
  * @module
  */
 
+const { FilePath } = require("./class/filePath");
+
 /**
  * The main paths array.
  * @type {FilePath[]}
@@ -28,7 +30,7 @@ function getPaths() {
 
 /**
  * Set the new paths as the saved paths.
- * @param {FilePath[]} newPaths
+ * @param {FilePath[]} newPaths - The new paths assigned to the global variable.
  * @returns {void}
  * @example
  * const newPaths = [new FilePath(...)];
