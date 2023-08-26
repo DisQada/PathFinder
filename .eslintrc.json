@@ -10,7 +10,6 @@
     },
     "extends": ["eslint:recommended", "plugin:jsdoc/recommended-error"],
     "plugins": ["jsdoc"],
-    "ignorePatterns": ["**/node_modules/**", "**/docs/**", "**/*.md"],
     "rules": {
         "jsdoc/check-indentation": "warn",
         "jsdoc/check-line-alignment": "warn",
