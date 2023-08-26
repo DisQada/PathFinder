@@ -1,0 +1,24 @@
+{
+    "plugins": ["plugins/markdown"],
+    "recurseDepth": 10,
+    "sourceType": "module",
+    "source": {
+        "include": ["src"],
+        "exclude": ["node_modules", "docs", "tests"],
+        "includePattern": ".js$"
+    },
+    "tags": {
+        "allowUnknownTags": false,
+        "dictionaries": ["jsdoc", "closure"]
+    },
+    "templates": {
+        "cleverLinks": false,
+        "monospaceLinks": false
+    },
+    "opts": {
+        "recurse": true,
+        "readme": "./README.md",
+        "destination": "./docs/",
+        "tutorials": "./tutorials"
+    }
+}

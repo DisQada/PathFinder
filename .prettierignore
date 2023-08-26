@@ -1,7 +1,7 @@
 # Ignore folders
 .git/
 node_modules/
-dist/
+docs/
 types/
 
 # Don't ignore folders

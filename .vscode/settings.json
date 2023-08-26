@@ -8,5 +8,6 @@
         "source.organizeImports": true
     },
 
-    "cSpell.words": ["analyzer", "disqada", "github", "prerelease"]
+    "javascript.suggest.jsdoc.generateReturns": true,
+    "javascript.suggest.completeJSDocs": true
 }
