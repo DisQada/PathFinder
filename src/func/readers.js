@@ -4,8 +4,9 @@
  * @ignore
  */
 
-const { readdir, stat } = require("fs/promises");
 const { sep } = require("path");
+const { readdir, stat } = require("fs/promises");
+const { SearchOptions } = require("../interface/options");
 
 /**
  * Set of functions for reading paths using search options.
