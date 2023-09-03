@@ -60,7 +60,7 @@ function storePaths(paths) {
  * @param {string[]} [folderPaths] - Folder path to search in.
  * @param {SearchOptions} options - Whether to search subfolders.
  * @returns {Promise<void>}
- * @example <caption></caption>
+ * @example
  * storeFolderPaths();
  * @example
  * storeFolderPaths(["src"]);

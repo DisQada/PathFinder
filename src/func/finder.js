@@ -19,8 +19,8 @@ const { FilterOptions } = require("../interface/options");
  * @returns {FilePath[]} - If no paths found, an empty array will be returned.
  * @example <caption>will return all stored js files</caption>
  * findPaths({ extension: "js" });
- * @example <caption>will return all stored js and jsx files</caption>
- * findPaths({ extension: /^jsx?$/ });
+ * @example <caption>will return all stored js and json files</caption>
+ * findPaths({ extension: /^js(on)?$/ });
  * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array|Array}
  */
 function findPaths(options) {

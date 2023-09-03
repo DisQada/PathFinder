@@ -24,9 +24,4 @@
  * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp|RegExp}
  */
 
-module.exports = {
-    /** @type {SearchOptions} */
-    SearchOptions: {},
-    /** @type {FilterOptions} */
-    FilterOptions: {},
-}
+module.exports = {};
