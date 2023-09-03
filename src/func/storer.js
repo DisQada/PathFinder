@@ -20,6 +20,8 @@ const { SearchOptions } = require("../interface/options");
  * @returns {boolean} True if saved, false otherwise.
  * @example
  * if (storedPath(".../example.js")) { ... }
+ * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String|String}
+ * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean|Boolean}
  */
 function storedPath(path) {
     return getPaths().some((fp) => fp.fullPath === path);
@@ -31,6 +33,9 @@ function storedPath(path) {
  * @returns {void}
  * @example
  * storePaths(["example1.js", "src/example2.js"]);
+ * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String|String}
+ * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array|Array}
+ * @see {@link https://www.typescriptlang.org/docs/handbook/basic-types.html#void|Void}
  */
 function storePaths(paths) {
     const newPaths = [];
@@ -61,6 +66,10 @@ function storePaths(paths) {
  * storeFolderPaths(["src"]);
  * @example
  * storeFolderPaths(["src", "src/main"], { deepSearch: false });
+ * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String|String}
+ * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array|Array}
+ * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise|Promise}
+ * @see {@link https://www.typescriptlang.org/docs/handbook/basic-types.html#void|Void}
  */
 async function storeFolderPaths(
     folderPaths,

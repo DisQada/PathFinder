@@ -21,6 +21,7 @@ const { FilterOptions } = require("../interface/options");
  * findPaths({ extension: "js" });
  * @example <caption>will return all stored js and jsx files</caption>
  * findPaths({ extension: /^jsx?$/ });
+ * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array|Array}
  */
 function findPaths(options) {
     /**
@@ -30,6 +31,8 @@ function findPaths(options) {
      * @returns {boolean} - True if matches, false otherwise.
      * @example
      * test("src/example.js", "name");
+     * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String|String}
+     * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean|Boolean}
      */
     function test(path, propertyName) {
         const property = options?.[propertyName] || undefined;
@@ -61,6 +64,7 @@ function findPaths(options) {
 
 /**
  * Search for the first stored FilePath matching the given filter options.
+ * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Undefined|Undefined}
  * @param {FilterOptions} options - Path's search filter options.
  * @returns {FilePath | undefined} - The FilePath if found, otherwise undefined.
  * @example <caption>will return the first file called "example"</caption>

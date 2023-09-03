@@ -9,7 +9,11 @@ const { statSync } = require("fs");
 const { isAbsolute, resolve, sep } = require("path");
 
 /**
- *The class of file paths in the tool.
+ * The class of file paths in the tool.
+ * @class
+ * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/class|Class}
+ * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String|String}
+ * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error|Error}
  */
 class FilePath {
     /**

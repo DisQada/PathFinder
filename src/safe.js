@@ -15,6 +15,7 @@ const { FilePath } = require("./class/filePath");
  * The main paths array.
  * @type {FilePath[]}
  * @default {Array}
+ * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array|Array}
  */
 let paths = [];
 
@@ -35,6 +36,7 @@ function getPaths() {
  * @example
  * const newPaths = [new FilePath(...)];
  * setPaths(newPaths);
+ * @see {@link https://www.typescriptlang.org/docs/handbook/basic-types.html#void|Void}
  */
 function setPaths(newPaths) {
     paths = newPaths;

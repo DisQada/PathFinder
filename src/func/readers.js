@@ -18,6 +18,9 @@ const { sep } = require("path");
  * @returns {Promise<string[]>} - An array of the folder names.
  * @example <caption>If the top level folders are "src", "dist", "node_modules" and ".git", then it will return ["src", "dist"];</caption>
  * const folderNames = readWorkspaceFolderNames();
+ * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String|String}
+ * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array|Array}
+ * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise|Promise}
  */
 async function readWorkspaceFolderNames() {
     const invalidNameRegExp = /[._]/;
@@ -37,12 +40,15 @@ async function readWorkspaceFolderNames() {
 /**
  * Get all paths inside a folder path.
  * @param {string} folderPath - The path of the folder to read.
- * @param {options.SearchOptions} options - Whether to read subfolders or not.
+ * @param {SearchOptions} options - Whether to read subfolders or not.
  * @returns {Promise<string[]>} An array of paths.
  * @example
  * const paths = readFolderPaths(["src"]);
  * @example
  * const paths = readFolderPaths(["src"], { deepSearch = true });
+ * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String|String}
+ * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array|Array}
+ * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise|Promise}
  */
 async function readFolderPaths(folderPath, options) {
     const stats = await stat(folderPath);
