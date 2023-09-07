@@ -1,6 +1,10 @@
 {
-    "setup": {
+    "start": {
         "title": "Getting started",
+        "children": []
+    },
+    "same": {
+        "title": "Same file names",
         "children": []
     }
 }
