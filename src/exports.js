@@ -8,6 +8,7 @@ const { FilePath } = require("./class/filePath");
 const { FilterOptions, SearchOptions } = require("./interface/options");
 const { findPath, findPaths } = require("./func/finder");
 const { readFolderPaths, readWorkspaceFolderNames } = require("./func/readers");
+const { storeFolderPaths } = require("./func/storer");
 
 module.exports = {
     FilePath,
@@ -19,5 +20,7 @@ module.exports = {
     findPaths,
 
     readFolderPaths,
-    readWorkspaceFolderNames
+    readWorkspaceFolderNames,
+
+    storeFolderPaths
 };
