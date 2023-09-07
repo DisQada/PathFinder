@@ -15,7 +15,12 @@ describe("readWorkspaceFolderNames function", () => {
             expect(folderName).not.toMatch(/[._]/);
         });
 
-        expect(validFolderNames).toEqual(["src", "tests", "tutorials"]);
+        expect(validFolderNames).toEqual([
+            "src",
+            "styles",
+            "tests",
+            "tutorials"
+        ]);
     });
 });
 

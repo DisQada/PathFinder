@@ -48,7 +48,7 @@ describe("findPaths function", () => {
 
         expect(Array.isArray(result)).toBeTruthy();
         expect(result[0]).toBeInstanceOf(FilePath);
-        expect(result.length).toEqual(15);
+        expect(result.length).toEqual(18);
     });
 
     test("Only one folder name", async () => {
