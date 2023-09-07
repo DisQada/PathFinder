@@ -1,3 +1,11 @@
+## [2.0.1](https://github.com/DisQada/pathfinder/compare/v2.0.0...v2.0.1) (2023-09-07)
+
+
+### Bug Fixes
+
+* **exports:** export non-exported functions ([2ae1739](https://github.com/DisQada/pathfinder/commit/2ae1739dbbeab51aee6ebe6cdfa0c8dfbbcbbee5))
+* **readers:** add missing modules ([30cb416](https://github.com/DisQada/pathfinder/commit/30cb416fc39f67128039fb9359a4161253d968f8))
+
 # [2.0.0](https://github.com/DisQada/pathfinder/compare/v1.1.1...v2.0.0) (2023-07-20)
 
 
