@@ -22,6 +22,7 @@ const { SearchOptions } = require("../interface/options");
  * if (storedPath(".../example.js")) { ... }
  * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String|String}
  * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean|Boolean}
+ * @private
  */
 function storedPath(path) {
     return getPaths().some((fp) => fp.fullPath === path);
@@ -36,6 +37,7 @@ function storedPath(path) {
  * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String|String}
  * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array|Array}
  * @see {@link https://www.typescriptlang.org/docs/handbook/basic-types.html#void|Void}
+ * @private
  */
 function storePaths(paths) {
     const newPaths = [];
