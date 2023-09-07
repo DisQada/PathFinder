@@ -17,8 +17,8 @@
  * @typedef {object} FilterOptions
  * @property {string|RegExp} [name] - The exact string or a pattern regex.
  * @property {string|RegExp} [extension] - The exact string or a pattern regex.
- * @property {string | RegExp} [folder] - The exact string or a pattern regex.
- * @property {string | RegExp} [root] - The exact string or a pattern regex.
+ * @property {string|RegExp} [folder] - The exact string or a pattern regex.
+ * @property {string|RegExp} [root] - The exact string or a pattern regex.
  * @interface
  * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String|String}
  * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp|RegExp}
