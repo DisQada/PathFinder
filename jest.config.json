@@ -2,6 +2,6 @@
     "bail": false,
     "verbose": true,
     "collectCoverage": true,
-    "collectCoverageFrom": ["src/**/*.{js,jsx}", "!**/exports.{js,jsx}"],
+    "collectCoverageFrom": ["src/**/*.js", "!**/exports.*"],
     "coverageReporters": [["text", { "skipFull": true }]]
 }
