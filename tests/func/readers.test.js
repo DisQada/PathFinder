@@ -15,12 +15,7 @@ describe("readWorkspaceFolderNames function", () => {
             expect(folderName).not.toMatch(/[._]/);
         });
 
-        expect(validFolderNames).toEqual([
-            "src",
-            "styles",
-            "tests",
-            "tutorials"
-        ]);
+        expect(validFolderNames).toEqual(["src", "tests"]);
     });
 });
 
@@ -40,7 +35,7 @@ describe("readFolderPaths function", () => {
         });
 
         expect(paths).toEqual([
-            resolve("tests", ".eslintrc.json"),
+            resolve("tests", ".eslintrc"),
             resolve("tests", "safe.test.js")
         ]);
     });
@@ -62,7 +57,7 @@ describe("readFolderPaths function", () => {
         });
 
         expect(paths).toEqual([
-            resolve("tests", ".eslintrc.json"),
+            resolve("tests", ".eslintrc"),
             resolve("tests", "class", "filePath.test.js"),
             resolve("tests", "func", "finder.test.js"),
             resolve("tests", "func", "readers.test.js"),

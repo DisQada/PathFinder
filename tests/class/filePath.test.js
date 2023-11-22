@@ -61,7 +61,7 @@ describe("Instantiation with a valid absolute path", () => {
         const root = parts.slice(0, -2).join(sep);
 
         expect(filePath.root).toEqual(root);
-        expect(filePath.folder).toEqual("pathfinder");
+        expect(filePath.folder).toEqual("PathFinder");
         expect(filePath.name).toEqual("LICENSE");
         expect(filePath.extension).toEqual("");
     });
