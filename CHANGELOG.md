@@ -1,3 +1,10 @@
+## [2.0.2](https://github.com/DisQada/PathFinder/compare/v2.0.1...v2.0.2) (2023-11-22)
+
+
+### Bug Fixes
+
+* fix types, references and imports ([b52ae45](https://github.com/DisQada/PathFinder/commit/b52ae457b2452d1e71ccf36e6a48cc85d35fdbb8))
+
 ## [2.0.1](https://github.com/DisQada/pathfinder/compare/v2.0.0...v2.0.1) (2023-09-07)
 
 

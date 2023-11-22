@@ -1,7 +1,7 @@
 {
     "displayName": "PathFinder",
     "name": "@disqada/pathfinder",
-    "version": "2.0.1",
+    "version": "2.0.2",
     "description": "Easily find files in chosen directories in your project",
     "scripts": {
         "config": "npm explore @disqada/typedoc -- npm run config",
