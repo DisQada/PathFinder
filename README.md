@@ -1,18 +1,34 @@
-# pathfinder
+# PathFinder
 
 ## Badges
 
-Main links
-
-[![github](https://img.shields.io/badge/DisQada/pathfinder-000000?logo=github&logoColor=white)](https://www.github.com/DisQada/pathfinder)
+[![github](https://img.shields.io/badge/DisQada/PathFinder-000000?logo=github&logoColor=white)](https://www.github.com/DisQada/PathFinder)
 [![npm](https://img.shields.io/badge/@disqada/pathfinder-CB3837?logo=npm&logoColor=white)](https://www.npmjs.com/package/@disqada/pathfinder)
 
 ![version](https://img.shields.io/npm/v/@disqada/pathfinder.svg?label=latest&logo=npm)
 ![monthly downloads](https://img.shields.io/npm/dm/@disqada/pathfinder.svg?logo=npm)
 
-![test](https://github.com/DisQada/pathfinder/actions/workflows/test.yml/badge.svg)
-[![Generate and Deploy documentation](https://github.com/DisQada/pathfinder/actions/workflows/docs.yml/badge.svg)](https://github.com/DisQada/pathfinder/actions/workflows/docs.yml)
+![test](https://github.com/DisQada/PathFinder/actions/workflows/test.yml/badge.svg)
+[![Generate and Deploy documentation](https://github.com/DisQada/PathFinder/actions/workflows/docs.yml/badge.svg)](https://github.com/DisQada/PathFinder/actions/workflows/docs.yml)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg?logo=semantic-release)](https://github.com/semantic-release/semantic-release)
+
+## Table of Contents
+
+- [PathFinder](#pathfinder)
+  - [Badges](#badges)
+  - [Table of Contents](#table-of-contents)
+  - [About](#about)
+  - [Learn](#learn)
+  - [License](#license)
+- [Getting started](#getting-started)
+  - [Store paths](#store-paths)
+  - [Find paths](#find-paths)
+- [Same file names](#same-file-names)
+  - [Renaming files](#renaming-files)
+  - [Receiving all matches](#receiving-all-matches)
+  - [Filtering by different properties](#filtering-by-different-properties)
+    - [Extension difference](#extension-difference)
+    - [Folder difference](#folder-difference)
 
 ## About
 
@@ -27,7 +43,7 @@ Check the [Getting started](#getting-started) guide for first time usage.
 
 Copyright © 2022 [Nabil Alsaiad](https://github.com/nabil-alsaiad)
 
-The jsdoc-action GitHub action is licensed under the [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0).  
+This tool is licensed under the [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0).  
 See the [LICENSE](LICENSE) file for more information.
 
 # Getting started

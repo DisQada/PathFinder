@@ -1,38 +1,45 @@
 {
+    "displayName": "PathFinder",
     "name": "@disqada/pathfinder",
     "version": "2.0.1",
     "description": "Easily find files in chosen directories in your project",
     "scripts": {
-        "test": "jest",
-        "doc": "jsdoc -c jsdoc.json",
-        "format": "prettier . --write",
+        "config": "npm explore @disqada/typedoc -- npm run config",
+        "build": "npm explore @disqada/typedoc -- npm run build",
+        "doc": "npm explore @disqada/typedoc -- npm run doc",
         "lint": "eslint . --fix",
+        "format": "prettier . --write",
+        "test": "jest",
         "commit": "git-cz",
         "semantic-release": "semantic-release"
     },
+    "type": "commonjs",
     "main": "./src/exports.js",
     "module": "./src/exports.js",
-    "types": "./src/exports.js",
+    "types": "./types/exports.d.ts",
     "exports": {
         ".": {
             "node": "./src/exports.js",
             "require": "./src/exports.js",
             "import": "./src/exports.js",
-            "types": "./src/exports.js",
+            "types": "./types/exports.d.ts",
             "default": "./src/exports.js"
         }
     },
     "files": [
         "src/",
-        "CHANGELOG.md"
+        "types/",
+        "CHANGELOG.md",
+        "README.md",
+        "LICENSE"
     ],
-    "homepage": "https://disqada.github.io/pathfinder",
+    "homepage": "https://disqada.github.io/PathFinder",
     "repository": {
         "type": "git",
-        "url": "https://github.com/DisQada/pathfinder.git"
+        "url": "https://github.com/DisQada/PathFinder.git"
     },
     "bugs": {
-        "url": "https://github.com/DisQada/pathfinder/issues"
+        "url": "https://github.com/DisQada/PathFinder/issues"
     },
     "keywords": [
         "find",
@@ -49,7 +56,6 @@
         "email": "contact@nabilalsaiad.com",
         "url": "https://links.nabilalsaiad.com"
     },
-    "contributors": [],
     "license": "Apache-2.0",
     "devDependencies": {
         "@disqada/typedoc": "^1.0.3",
