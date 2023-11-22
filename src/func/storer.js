@@ -1,18 +1,6 @@
-/**
- * Set of functions for storing paths.
- * @file
- * @ignore
- */
-
 const { readWorkspaceFolderNames, readFolderPaths } = require("./readers");
 const { getPaths, setPaths } = require("../safe");
 const { FilePath } = require("../class/filePath");
-const { SearchOptions } = require("../interface/options");
-
-/**
- * Set of functions for storing paths.
- * @module storer
- */
 
 /**
  * Check if a file path saved.
@@ -20,9 +8,6 @@ const { SearchOptions } = require("../interface/options");
  * @returns {boolean} True if saved, false otherwise.
  * @example
  * if (storedPath(".../example.js")) { ... }
- * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String|String}
- * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean|Boolean}
- * @private
  */
 function storedPath(path) {
     return getPaths().some((fp) => fp.fullPath === path);
@@ -34,10 +19,6 @@ function storedPath(path) {
  * @returns {void}
  * @example
  * storePaths(["example1.js", "src/example2.js"]);
- * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String|String}
- * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array|Array}
- * @see {@link https://www.typescriptlang.org/docs/handbook/basic-types.html#void|Void}
- * @private
  */
 function storePaths(paths) {
     const newPaths = [];
@@ -60,7 +41,7 @@ function storePaths(paths) {
 /**
  * Save all file paths in specific folder.
  * @param {string[]} [folderPaths] - Folder path to search in.
- * @param {SearchOptions} options - Whether to search subfolders.
+ * @param {import("../interface/options").SearchOptions} [options] - Whether to search subfolders. @defaultValue { deepSearch: true }
  * @returns {Promise<void>}
  * @example
  * storeFolderPaths();
@@ -68,10 +49,6 @@ function storePaths(paths) {
  * storeFolderPaths(["src"]);
  * @example
  * storeFolderPaths(["src", "src/main"], { deepSearch: false });
- * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String|String}
- * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array|Array}
- * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise|Promise}
- * @see {@link https://www.typescriptlang.org/docs/handbook/basic-types.html#void|Void}
  */
 async function storeFolderPaths(
     folderPaths,

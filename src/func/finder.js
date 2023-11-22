@@ -1,38 +1,22 @@
-/**
- * Set of functions for finding paths using filtering options.
- * @file
- * @ignore
- */
-
 const { getPaths } = require("../safe");
-const { FilePath } = require("../class/filePath");
-const { FilterOptions } = require("../interface/options");
-
-/**
- * Set of functions for finding paths using filtering options.
- * @module finder
- */
 
 /**
  * Find all stored paths with filtering.
- * @param {FilterOptions} options - If options is null, all the paths will be returned.
- * @returns {FilePath[]} - If no paths found, an empty array will be returned.
+ * @param {import("../interface/options").FilterOptions} options - If options is null, all the paths will be returned.
+ * @returns {import("../class/filePath").FilePath[]} - If no paths found, an empty array will be returned.
  * @example <caption>will return all stored js files</caption>
  * findPaths({ extension: "js" });
  * @example <caption>will return all stored js and json files</caption>
  * findPaths({ extension: /^js(on)?$/ });
- * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array|Array}
  */
 function findPaths(options) {
     /**
      * Check if the given path matches the filter options on a single property level.
-     * @param {FilePath} path - The path to check it's property.
+     * @param {import("../class/filePath").FilePath} path - The path to check it's property.
      * @param {string} propertyName - The level in the path to check.
      * @returns {boolean} - True if matches, false otherwise.
      * @example
      * test("src/example.js", "name");
-     * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String|String}
-     * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean|Boolean}
      */
     function test(path, propertyName) {
         const property = options?.[propertyName] || undefined;
@@ -64,12 +48,11 @@ function findPaths(options) {
 
 /**
  * Search for the first stored FilePath matching the given filter options.
- * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Undefined|Undefined}
- * @param {FilterOptions} options - Path's search filter options.
- * @returns {FilePath | undefined} - The FilePath if found, otherwise undefined.
+ * @param {import("../interface/options").FilterOptions} options - Path's search filter options.
+ * @returns {import("../class/filePath").FilePath | void} - The FilePath if found, otherwise undefined.
  * @example <caption>will return the first file called "example"</caption>
  * const filePath = findPath({ name: "example" });
- * const { ... } = require(filePath);
+ * const { ... } = require(filePath.fullPath);
  */
 function findPath(options) {
     return findPaths(options)[0];

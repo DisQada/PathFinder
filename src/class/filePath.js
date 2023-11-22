@@ -1,46 +1,44 @@
-/* eslint-disable jsdoc/require-example */
-
-/**
- * @file
- * @ignore
- */
-
 const { statSync } = require("fs");
 const { isAbsolute, resolve, sep } = require("path");
 
 /**
  * The class of file paths in the tool.
  * @class
- * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/class|Class}
- * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String|String}
- * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error|Error}
  */
 class FilePath {
     /**
      * File name without extension.
+     * @type {string}
      * @example
-     * example.test.js, FilePath.name = "example"
+     * const fp = new FilePath("example.test.js");
+     * // fp.name = "example"
      */
     name;
 
     /**
      * File's parent folder/directory name.
+     * @type {string}
      * @example
-     * main/example.js, FilePath.folder = "main"
+     * const fp = new FilePath("main/example.js");
+     * // fp.folder = "main"
      */
     folder;
 
     /**
-     * File extension after the fist dot.
+     * File extension after the first dot.
+     * @type {string}
      * @example
-     * example.test.js, FilePath.extension = "test.js"
+     * const fp = new FilePath("example.test.js");
+     * // fp.extension = "test.js"
      */
     extension;
 
     /**
      * File's absolute path before the parent folder/directory.
+     * @type {string}
      * @example
-     * C:/users/someone/main/example.js, FilePath.root = "C:/users/someone"
+     * const fp = new FilePath("C:/users/someone/main/example.js");
+     * // fp.root = "C:/users/someone"
      */
     root;
 
@@ -48,7 +46,7 @@ class FilePath {
      * Defining the initial values of the class instance.
      * @param {string} filePath - An absolute or relative to workspace path, if not, the `relativeTo` parameter must have a value.
      * @param {string} [relativeTo] - The path relative to the location of the `filePath` parameter if wasn't relative to the workspace.
-     * @throws {Error} If filePath` is not absolute or relative to workspace path.
+     * @throws {Error} If `filePath` is not absolute or relative to workspace path.
      */
     constructor(filePath, relativeTo) {
         if (!isAbsolute(filePath)) {
@@ -83,7 +81,8 @@ class FilePath {
 
     /**
      * File name with extension.
-     * @returns {string} Yes.
+     * @returns {string}
+     * @public
      */
     get fullName() {
         if (this.extension === "") {
@@ -95,7 +94,8 @@ class FilePath {
 
     /**
      * Absolute file path.
-     * @returns {string} Yes.
+     * @returns {string}
+     * @public
      */
     get fullPath() {
         return this.root + sep + this.folder + sep + this.fullName;
