@@ -59,6 +59,7 @@
     "license": "Apache-2.0",
     "devDependencies": {
         "@disqada/typedoc": "^1.0.3",
+        "@types/jest": "^29.5.10",
         "commitizen": "^4.3.0",
         "cz-conventional-changelog": "^3.3.0",
         "eslint": "^8.39.0",
