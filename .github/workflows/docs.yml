@@ -34,13 +34,16 @@ jobs:
               run: npm ci
 
             - name: Config
-              run: npm run config
+              run: npm explore @disqada/typedoc -- npm run config
 
             - name: Build
-              run: npm run build
+              run: npm explore @disqada/typedoc -- npm run build
 
-            - name: Generate Documentation
-              run: npm run doc
+            - name: Clean types
+              run: npm explore @disqada/typedoc -- npm run clean
+
+            - name: Generate documentation
+              run: npm explore @disqada/typedoc -- npm run doc
 
             - name: Setup Pages
               uses: actions/configure-pages@v3
