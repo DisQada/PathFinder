@@ -3,13 +3,14 @@ const { findPath, findPaths } = require("./func/finder");
 const { readFolderPaths, readWorkspaceFolderNames } = require("./func/readers");
 const { storeFolderPaths } = require("./func/storer");
 
-module.exports.Class = { FilePath };
-module.exports.Finder = {
+module.exports = {
+    FilePath,
+
     findPath,
-    findPaths
-};
-module.exports.Reader = {
+    findPaths,
+
     readFolderPaths,
-    readWorkspaceFolderNames
+    readWorkspaceFolderNames,
+
+    storeFolderPaths
 };
-module.exports.Storer = { storeFolderPaths };
