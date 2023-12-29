@@ -71,8 +71,8 @@ Let's say that this is out workspace
 We use this code to store the paths of all files in the `src` and `data` folder
 
 ```js
-const {storeFolderPaths} = require('@disqada/pathfinder');
-storeFolderPaths(['src', 'data']);
+const { storeFolderPaths } = require('@disqada/pathfinder')
+storeFolderPaths(['src', 'data'])
 ```
 
 Now we'll have the following paths stored successfully
@@ -96,10 +96,10 @@ Here is where this tools comes to help, if you only know the name of the file th
 Let's say that we want to require the file `src/example2.js`, we use the following code for that
 
 ```js
-const {findPath} = require('@disqada/pathfinder');
+const { findPath } = require('@disqada/pathfinder')
 
-const filePath = findPath({name: 'example2'});
-const {...} = require(filePath.fullPath);
+const filePath = findPath({ name: 'example2' })
+const { ... } = require(filePath.fullPath)
 ```
 
 With that we successfully required the module and used it just like normal but without the need to know it's full path
@@ -131,10 +131,10 @@ Renaming one of the files to another name will solve this problem, but it's not 
 Instead of getting one file path, we can get an array of all the file paths of that name by changing the function from `findPath()` to `findPaths()`
 
 ```js
-const {findPaths} = require('@disqada/pathfinder');
+const { findPaths } = require('@disqada/pathfinder')
 
-const filePaths = findPaths({name: 'example1'});
-const {...} = require(filePaths[1].fullPath);
+const filePaths = findPaths({ name: 'example1' })
+const { ... } = require(filePaths[1].fullPath)
 ```
 
 This will solve the problem, for now, what if we then added another file named `example1.js` somewhere in our project or the order of the files changed (files order in the workspace or the order of storing)?
@@ -150,10 +150,10 @@ The best way to work around the problem of file name conflict is by adding more 
 Both files have the same file name and path except for only the extension, so we can specify the `extension` property in the `FilterOptions` parameter to get our desired file
 
 ```js
-const {findPath} = require('@disqada/pathfinder');
+const { findPath } = require('@disqada/pathfinder')
 
-const filePath = findPath({extension: 'json'});
-const {...} = require(filePath.fullPath);
+const filePath = findPath({ extension: 'json' })
+const { ... } = require(filePath.fullPath)
 ```
 
 ### Folder difference
@@ -172,8 +172,8 @@ If our workspace was instead like this, where both the files' name and extension
 Then the way we'll get the correct path is as follows
 
 ```js
-const {findPath} = require('@disqada/pathfinder');
+const { findPath } = require('@disqada/pathfinder')
 
-const filePath = findPath({folder: 'data'});
-const {...} = require(filePath.fullPath);
+const filePath = findPath({ folder: 'data' })
+const { ... } = require(filePath.fullPath)
 ```

@@ -3,7 +3,7 @@
  * @type {import("./class/filePath").FilePath[]}
  * @default []
  */
-let paths = [];
+let paths = []
 
 /**
  * Get all saved paths.
@@ -12,7 +12,7 @@ let paths = [];
  * const paths = getPaths();
  */
 function getPaths() {
-    return paths;
+  return paths
 }
 
 /**
@@ -24,10 +24,10 @@ function getPaths() {
  * setPaths(newPaths);
  */
 function setPaths(newPaths) {
-    paths = newPaths;
+  paths = newPaths
 }
 
 module.exports = {
-    getPaths,
-    setPaths
-};
+  getPaths,
+  setPaths
+}

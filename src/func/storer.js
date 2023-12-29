@@ -1,6 +1,6 @@
-const { readWorkspaceFolderNames, readFolderPaths } = require("./readers");
-const { getPaths, setPaths } = require("../safe");
-const { FilePath } = require("../class/filePath");
+const { readWorkspaceFolderNames, readFolderPaths } = require('./readers')
+const { getPaths, setPaths } = require('../safe')
+const { FilePath } = require('../class/filePath')
 
 /**
  * Check if a file path saved.
@@ -10,7 +10,7 @@ const { FilePath } = require("../class/filePath");
  * if (storedPath(".../example.js")) { ... }
  */
 function storedPath(path) {
-    return getPaths().some((fp) => fp.fullPath === path);
+  return getPaths().some((fp) => fp.fullPath === path)
 }
 
 /**
@@ -21,21 +21,21 @@ function storedPath(path) {
  * storePaths(["example1.js", "src/example2.js"]);
  */
 function storePaths(paths) {
-    const newPaths = [];
+  const newPaths = []
 
-    const length = paths.length;
-    for (let i = 0; i < length; i++) {
-        const path = paths[i];
+  const length = paths.length
+  for (let i = 0; i < length; i++) {
+    const path = paths[i]
 
-        if (storedPath(path)) {
-            continue;
-        }
-
-        const filePath = new FilePath(path);
-        newPaths.push(filePath);
+    if (storedPath(path)) {
+      continue
     }
 
-    setPaths(newPaths);
+    const filePath = new FilePath(path)
+    newPaths.push(filePath)
+  }
+
+  setPaths(newPaths)
 }
 
 /**
@@ -51,30 +51,30 @@ function storePaths(paths) {
  * storeFolderPaths(["src", "src/main"], { deepSearch: false });
  */
 async function storeFolderPaths(
-    folderPaths,
-    options = {
-        deepSearch: true
-    }
+  folderPaths,
+  options = {
+    deepSearch: true
+  }
 ) {
-    if (!folderPaths) {
-        folderPaths = await readWorkspaceFolderNames();
-    }
+  if (!folderPaths) {
+    folderPaths = await readWorkspaceFolderNames()
+  }
 
-    if (folderPaths.length === 1) {
-        const filePaths = await readFolderPaths(folderPaths[0], options);
-        storePaths(filePaths);
-        return;
-    }
+  if (folderPaths.length === 1) {
+    const filePaths = await readFolderPaths(folderPaths[0], options)
+    storePaths(filePaths)
+    return
+  }
 
-    const filePaths = await Promise.all(
-        folderPaths.map(async (path) => await readFolderPaths(path, options))
-    );
+  const filePaths = await Promise.all(
+    folderPaths.map(async (path) => await readFolderPaths(path, options))
+  )
 
-    storePaths(filePaths.flat());
+  storePaths(filePaths.flat())
 }
 
 module.exports = {
-    storedPath,
-    storePaths,
-    storeFolderPaths
-};
+  storedPath,
+  storePaths,
+  storeFolderPaths
+}

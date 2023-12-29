@@ -1,4 +1,4 @@
-const { getPaths } = require("../safe");
+const { getPaths } = require('../safe')
 
 /**
  * Find all stored paths with filtering.
@@ -10,40 +10,40 @@ const { getPaths } = require("../safe");
  * findPaths({ extension: /^js(on)?$/ });
  */
 function findPaths(options) {
-    /**
-     * Check if the given path matches the filter options on a single property level.
-     * @param {import("../class/filePath").FilePath} path - The path to check it's property.
-     * @param {string} propertyName - The level in the path to check.
-     * @returns {boolean} - True if matches, false otherwise.
-     * @example
-     * test("src/example.js", "name");
-     */
-    function test(path, propertyName) {
-        const property = options?.[propertyName] || undefined;
-        if (!property) {
-            return true;
-        }
-
-        if (typeof property === "string") {
-            return property === path[propertyName];
-        } else {
-            return property.test(path[propertyName]);
-        }
-    }
-    const filePaths = getPaths();
-
-    if (!options) {
-        return filePaths;
+  /**
+   * Check if the given path matches the filter options on a single property level.
+   * @param {import("../class/filePath").FilePath} path - The path to check it's property.
+   * @param {string} propertyName - The level in the path to check.
+   * @returns {boolean} - True if matches, false otherwise.
+   * @example
+   * test("src/example.js", "name");
+   */
+  function test(path, propertyName) {
+    const property = options?.[propertyName] || undefined
+    if (!property) {
+      return true
     }
 
-    return filePaths.filter((path) => {
-        return (
-            test(path, "name") &&
-            test(path, "extension") &&
-            test(path, "folder") &&
-            test(path, "root")
-        );
-    });
+    if (typeof property === 'string') {
+      return property === path[propertyName]
+    } else {
+      return property.test(path[propertyName])
+    }
+  }
+  const filePaths = getPaths()
+
+  if (!options) {
+    return filePaths
+  }
+
+  return filePaths.filter((path) => {
+    return (
+      test(path, 'name') &&
+      test(path, 'extension') &&
+      test(path, 'folder') &&
+      test(path, 'root')
+    )
+  })
 }
 
 /**
@@ -55,10 +55,10 @@ function findPaths(options) {
  * const { ... } = require(filePath.fullPath);
  */
 function findPath(options) {
-    return findPaths(options)[0];
+  return findPaths(options)[0]
 }
 
 module.exports = {
-    findPath,
-    findPaths
-};
+  findPath,
+  findPaths
+}

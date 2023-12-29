@@ -13,4 +13,4 @@
  * @property {string | RegExp} [extension] - The file extension after the first dot.
  */
 
-module.exports = {};
+module.exports = {}
