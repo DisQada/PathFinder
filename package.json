@@ -29,7 +29,7 @@
         "types/",
         "CHANGELOG.md",
         "README.md",
-        "LICENSE"
+        "LICENSE.txt"
     ],
     "homepage": "https://disqada.github.io/PathFinder",
     "repository": {

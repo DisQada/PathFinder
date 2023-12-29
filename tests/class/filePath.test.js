@@ -48,14 +48,14 @@ describe("Instantiation with a valid absolute path", () => {
     });
 
     test("Workspace file path", () => {
-        const myPath = "LICENSE";
+        const myPath = "LICENSE.txt";
         const resolved = resolve(myPath);
         const filePath = new FilePath(myPath);
 
         expect(typeof filePath).toBe("object");
 
         expect(filePath.fullPath).toEqual(resolved);
-        expect(filePath.fullName).toEqual("LICENSE");
+        expect(filePath.fullName).toEqual("LICENSE.txt");
 
         const parts = resolved.split(sep);
         const root = parts.slice(0, -2).join(sep);
@@ -63,7 +63,7 @@ describe("Instantiation with a valid absolute path", () => {
         expect(filePath.root).toEqual(root);
         expect(filePath.folder).toEqual("PathFinder");
         expect(filePath.name).toEqual("LICENSE");
-        expect(filePath.extension).toEqual("");
+        expect(filePath.extension).toEqual("txt");
     });
 });
 

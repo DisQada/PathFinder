@@ -44,7 +44,7 @@ Check the [Getting started](#getting-started) guide for first time usage.
 Copyright © 2022 [Nabil Alsaiad](https://github.com/nabil-alsaiad)
 
 This tool is licensed under the [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0).  
-See the [LICENSE](LICENSE) file for more information.
+See the [LICENSE](LICENSE.txt) file for more information.
 
 # Getting started
 
