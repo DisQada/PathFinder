@@ -80,8 +80,7 @@ class FilePath {
     }
 
     /**
-     * File name with extension.
-     * @returns {string}
+     * @returns {string} - File name with extension
      * @public
      */
     get fullName() {
@@ -93,8 +92,7 @@ class FilePath {
     }
 
     /**
-     * Absolute file path.
-     * @returns {string}
+     * @returns {string} - Absolute file path
      * @public
      */
     get fullPath() {
