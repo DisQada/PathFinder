@@ -35,7 +35,7 @@ describe("readFolderPaths function", () => {
         });
 
         expect(paths).toEqual([
-            resolve("tests", ".eslintrc"),
+            resolve("tests", ".eslintrc.json"),
             resolve("tests", "safe.test.js")
         ]);
     });
@@ -57,7 +57,7 @@ describe("readFolderPaths function", () => {
         });
 
         expect(paths).toEqual([
-            resolve("tests", ".eslintrc"),
+            resolve("tests", ".eslintrc.json"),
             resolve("tests", "class", "filePath.test.js"),
             resolve("tests", "func", "finder.test.js"),
             resolve("tests", "func", "readers.test.js"),
