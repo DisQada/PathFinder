@@ -1,7 +1,14 @@
 {
-    "language": "en-GB",
     "caseSensitive": true,
     "useGitignore": true,
-    "files": ["./src/**/*", "./tests/**/*", "README.md"],
-    "words": ["Alsaiad", "disqada", "github", "Nabil"]
+    "language": "en-GB",
+    "files": [
+        "./src/**/*",
+        "./tests/**/*",
+        "README.md"
+    ],
+    "words": [
+        "disqada",
+        "Qada"
+    ]
 }

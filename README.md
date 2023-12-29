@@ -41,7 +41,7 @@ Check the [Getting started](#getting-started) guide for first time usage.
 
 ## License
 
-Copyright © 2022 [Nabil Alsaiad](https://github.com/nabil-alsaiad)
+Copyright &copy; 2023 [DisQada](https://github.com/DisQada)
 
 This tool is licensed under the [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0).  
 See the [LICENSE](LICENSE.txt) file for more information.

@@ -7,8 +7,8 @@
         "chamboug.js-auto-backticks",
         "dbaeumer.vscode-eslint",
         "esbenp.prettier-vscode",
-        "tabnine.tabnine-vscode",
         "gruntfuggly.todo-tree",
-        "redhat.vscode-yaml"
+        "redhat.vscode-yaml",
+        "yzhang.markdown-all-in-one"
     ]
 }
