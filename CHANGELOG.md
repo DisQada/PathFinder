@@ -1,3 +1,15 @@
+## [2.0.3](https://github.com/DisQada/PathFinder/compare/v2.0.2...v2.0.3) (2023-12-29)
+
+
+### Bug Fixes
+
+* **types:** Make "options" optional ([61b7b09](https://github.com/DisQada/PathFinder/commit/61b7b09874aae06789b8d9367d3effaf569906c2))
+
+
+### Reverts
+
+* **exports:** Revert namespaces export ([df2928d](https://github.com/DisQada/PathFinder/commit/df2928d0b8b2daa7e4ee387d2ff02b4542dd23d1))
+
 ## [2.0.2](https://github.com/DisQada/PathFinder/compare/v2.0.1...v2.0.2) (2023-11-22)
 
 ### Bug Fixes
