@@ -53,7 +53,7 @@
   },
   "license": "Apache-2.0",
   "devDependencies": {
-    "@disqada/typedoc": "^1.2.0",
+    "@disqada/typedoc": "^1.2.1",
     "@types/jest": "*",
     "eslint": "*",
     "eslint-plugin-import": "*",
