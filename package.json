@@ -7,8 +7,8 @@
         "config": "npm explore @disqada/typedoc -- npm run config",
         "types": "npm explore @disqada/typedoc -- npm run types",
         "docs": "npm explore @disqada/typedoc -- npm run docs",
-        "lint": "eslint . --fix",
-        "format": "prettier . --write",
+        "lint": "eslint . --fix --ignore-path .gitignore",
+        "format": "prettier . --write --ignore-path .gitignore",
         "test": "npx jest"
     },
     "type": "commonjs",
