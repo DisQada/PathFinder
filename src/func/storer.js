@@ -41,7 +41,7 @@ function storePaths(paths) {
 /**
  * Save all file paths in specific folder.
  * @param {string[]} [folderPaths] - Folder path to search in.
- * @param {import("../interface/options").SearchOptions} [options] - Whether to search subfolders. @defaultValue { deepSearch: true }
+ * @param {import("../options").SearchOptions} [options] - Whether to search subfolders. @defaultValue { deepSearch: true }
  * @returns {Promise<void>}
  * @example
  * storeFolderPaths();

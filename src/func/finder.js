@@ -2,7 +2,7 @@ const { getPaths } = require("../safe");
 
 /**
  * Find all stored paths with filtering.
- * @param {import("../interface/options").FilterOptions} options - If options is null, all the paths will be returned.
+ * @param {import("../options").FilterOptions} options - If options is null, all the paths will be returned.
  * @returns {import("../class/filePath").FilePath[]} - If no paths found, an empty array will be returned.
  * @example <caption>will return all stored js files</caption>
  * findPaths({ extension: "js" });
@@ -48,7 +48,7 @@ function findPaths(options) {
 
 /**
  * Search for the first stored FilePath matching the given filter options.
- * @param {import("../interface/options").FilterOptions} options - Path's search filter options.
+ * @param {import("../options").FilterOptions} options - Path's search filter options.
  * @returns {import("../class/filePath").FilePath | void} - The FilePath if found, otherwise undefined.
  * @example <caption>will return the first file called "example"</caption>
  * const filePath = findPath({ name: "example" });

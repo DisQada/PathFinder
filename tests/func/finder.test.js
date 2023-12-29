@@ -6,7 +6,7 @@ describe("findPath function", () => {
     test("find first match", async () => {
         await storeFolderPaths(["src", "tests"]);
 
-        /** @type {import("../../src/class/interfaces").filterOptions} */
+        /** @type {import("../../src/options").FilterOptions} */
         const options = { name: "finder" };
         const result = findPath(options);
         expect(result).toBeInstanceOf(FilePath);
@@ -15,7 +15,7 @@ describe("findPath function", () => {
     test("find js file", async () => {
         await storeFolderPaths(["src", "tests"]);
 
-        /** @type {import("../../src/class/interfaces").filterOptions} */
+        /** @type {import("../../src/options").FilterOptions} */
         const options = { name: "finder", extension: "js" };
         const result = findPath(options);
         expect(result).toBeInstanceOf(FilePath);
@@ -24,7 +24,7 @@ describe("findPath function", () => {
     test("find test.js file", async () => {
         await storeFolderPaths(["src", "tests"]);
 
-        /** @type {import("../../src/class/interfaces").filterOptions} */
+        /** @type {import("../../src/options").FilterOptions} */
         const options = { name: "finder", extension: "test.js" };
         const result = findPath(options);
         expect(result).toBeInstanceOf(FilePath);
@@ -33,7 +33,7 @@ describe("findPath function", () => {
     test("find non-existing file", async () => {
         await storeFolderPaths(["src", "tests"]);
 
-        /** @type {import("../../src/class/interfaces").filterOptions} */
+        /** @type {import("../../src/options").FilterOptions} */
         const options = { name: "finder", extension: "png" };
         const result = findPath(options);
         expect(result).toBeUndefined();
@@ -86,7 +86,7 @@ describe("findPaths function", () => {
     test("Existing filter string options search", async () => {
         await storeFolderPaths(["src", "tests"]);
 
-        /** @type {import("../../src/class/interfaces").FilterOptions} */
+        /** @type {import("../../src/options").FilterOptions} */
         const options = {
             name: "finder"
         };
@@ -101,7 +101,7 @@ describe("findPaths function", () => {
     test("Existing filter regex options search", async () => {
         await storeFolderPaths(["src", "tests"]);
 
-        /** @type {import("../../src/class/interfaces").FilterOptions} */
+        /** @type {import("../../src/options").FilterOptions} */
         const options = {
             name: /finder/
         };
@@ -114,7 +114,7 @@ describe("findPaths function", () => {
     });
 
     test("Non-existing filter options search", () => {
-        /** @type {import("../../src/class/interfaces").filterOptions} */
+        /** @type {import("../../src/options").FilterOptions} */
         const options = {
             name: "fake name"
         };

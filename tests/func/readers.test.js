@@ -21,7 +21,7 @@ describe("readWorkspaceFolderNames function", () => {
 
 describe("readFolderPaths function", () => {
     test("Without deepSearch", async () => {
-        /** @type {import("../../src/class/interfaces").SearchOptions} */
+        /** @type {import("../../src/options").SearchOptions} */
         const options = {};
         const myFolderPath = resolve("tests");
 
@@ -41,7 +41,7 @@ describe("readFolderPaths function", () => {
     });
 
     test("With deepSearch", async () => {
-        /** @type {import("../../src/class/interfaces").SearchOptions} */
+        /** @type {import("../../src/options").SearchOptions} */
         const options = {
             deepSearch: true
         };

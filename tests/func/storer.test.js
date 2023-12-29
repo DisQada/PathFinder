@@ -23,12 +23,11 @@ describe("storeFolderPaths functions", () => {
 
     test("Folder names with options", async () => {
         expect(async () => {
-            /** @type {import("../../src/class/interfaces").SearchOptions} */
+            /** @type {import("../../src/options").SearchOptions} */
             const options = {
                 deepSearch: true
             };
 
-            // @ts-expect-error
             await storeFolderPaths(folderNames, options);
         }).not.toThrow();
     });

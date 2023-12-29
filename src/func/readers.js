@@ -26,7 +26,7 @@ async function readWorkspaceFolderNames() {
 /**
  * Get all paths inside a folder path.
  * @param {string} folderPath - The path of the folder to read.
- * @param {import("../interface/options").SearchOptions} options - Whether to read subfolders or not.
+ * @param {import("../options").SearchOptions} options - Whether to read subfolders or not.
  * @returns {Promise<string[]>} An array of paths.
  * @example
  * const paths = readFolderPaths(["src"]);
