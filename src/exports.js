@@ -5,12 +5,9 @@ const { storeFolderPaths } = require('./func/storer')
 
 module.exports = {
   FilePath,
-
   findPath,
   findPaths,
-
   readFolderPaths,
   readWorkspaceFolderNames,
-
   storeFolderPaths
 }

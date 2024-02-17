@@ -1,15 +1,15 @@
 /**
  * The main paths array.
- * @type {import("./class/filePath").FilePath[]}
+ * @type {import('./class/filePath').FilePath[]}
  * @default []
  */
 let paths = []
 
 /**
  * Get all saved paths.
- * @returns {import("./class/filePath").FilePath[]} All saved paths.
+ * @returns {import('./class/filePath').FilePath[]} All saved paths.
  * @example
- * const paths = getPaths();
+ * const paths = getPaths()
  */
 function getPaths() {
   return paths
@@ -17,11 +17,11 @@ function getPaths() {
 
 /**
  * Set the new paths as the saved paths.
- * @param {import("./class/filePath").FilePath[]} newPaths - The new paths assigned to the global variable.
+ * @param {import('./class/filePath').FilePath[]} newPaths - The new paths assigned to the global variable.
  * @returns {void}
  * @example
- * const newPaths = [new FilePath(...)];
- * setPaths(newPaths);
+ * const newPaths = [new FilePath(...)]
+ * setPaths(newPaths)
  */
 function setPaths(newPaths) {
   paths = newPaths

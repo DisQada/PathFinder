@@ -10,8 +10,8 @@ class FilePath {
    * File name without extension.
    * @type {string}
    * @example
-   * const fp = new FilePath("example.test.js");
-   * // fp.name = "example"
+   * const fp = new FilePath('example.test.js')
+   * // fp.name = 'example'
    */
   name
 
@@ -19,8 +19,8 @@ class FilePath {
    * File's parent folder/directory name.
    * @type {string}
    * @example
-   * const fp = new FilePath("main/example.js");
-   * // fp.folder = "main"
+   * const fp = new FilePath('main/example.js')
+   * // fp.folder = 'main'
    */
   folder
 
@@ -28,8 +28,8 @@ class FilePath {
    * File extension after the first dot.
    * @type {string}
    * @example
-   * const fp = new FilePath("example.test.js");
-   * // fp.extension = "test.js"
+   * const fp = new FilePath('example.test.js')
+   * // fp.extension = 'test.js'
    */
   extension
 
@@ -37,8 +37,8 @@ class FilePath {
    * File's absolute path before the parent folder/directory.
    * @type {string}
    * @example
-   * const fp = new FilePath("C:/users/someone/main/example.js");
-   * // fp.root = "C:/users/someone"
+   * const fp = new FilePath('C:/users/someone/main/example.js')
+   * // fp.root = 'C:/users/someone'
    */
   root
 

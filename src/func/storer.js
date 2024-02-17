@@ -7,7 +7,7 @@ const { FilePath } = require('../class/filePath')
  * @param {string} path - The path string to check for.
  * @returns {boolean} True if saved, false otherwise.
  * @example
- * if (storedPath(".../example.js")) { ... }
+ * if (storedPath('.../example.js')) { ... }
  */
 function storedPath(path) {
   return getPaths().some((fp) => fp.fullPath === path)
@@ -18,7 +18,7 @@ function storedPath(path) {
  * @param {string[]} paths - Paths to add.
  * @returns {void}
  * @example
- * storePaths(["example1.js", "src/example2.js"]);
+ * storePaths(['example1.js', 'src/example2.js'])
  */
 function storePaths(paths) {
   const newPaths = []
@@ -41,14 +41,14 @@ function storePaths(paths) {
 /**
  * Save all file paths in specific folder.
  * @param {string[]} [folderPaths] - Folder path to search in.
- * @param {import("../options").SearchOptions} [options] - Whether to search subfolders. @defaultValue { deepSearch: true }
+ * @param {import('../options').SearchOptions} [options] - Whether to search subfolders. @defaultValue { deepSearch: true }
  * @returns {Promise<void>}
  * @example
- * storeFolderPaths();
+ * storeFolderPaths()
  * @example
- * storeFolderPaths(["src"]);
+ * storeFolderPaths(['src'])
  * @example
- * storeFolderPaths(["src", "src/main"], { deepSearch: false });
+ * storeFolderPaths(['src', 'src/main'], { deepSearch: false })
  */
 async function storeFolderPaths(
   folderPaths,
