@@ -6,7 +6,7 @@
   },
   "parserOptions": {
     "ecmaVersion": "latest",
-    "sourceType": "script"
+    "sourceType": "commonjs"
   },
   "extends": [
     "eslint:recommended",
@@ -15,5 +15,32 @@
     "plugin:promise/recommended"
   ],
   "plugins": ["jsdoc", "import", "promise"],
-  "rules": {}
+  "rules": {
+    "no-console": "error",
+    "jsdoc/require-param-description": "off",
+    "jsdoc/require-property-description": "off",
+    "jsdoc/require-returns-description": "off"
+  },
+  "overrides": [
+    {
+      "files": ["*.mjs"],
+      "parserOptions": {
+        "ecmaVersion": "latest",
+        "sourceType": "module"
+      }
+    },
+    {
+      "files": ["{test,tests}/**/*"],
+      "env": {
+        "mocha": true,
+        "es6": true,
+        "node": true
+      },
+      "extends": ["eslint:recommended", "plugin:mocha/recommended"],
+      "plugins": ["mocha"],
+      "rules": {
+        "mocha/max-top-level-suites": "off"
+      }
+    }
+  ]
 }
