@@ -1,3 +1,5 @@
+module.exports = {}
+
 /**
  * Used to filter the search logic | Options to control how path saving is performed.
  * @typedef {object} SearchOptions
@@ -12,5 +14,3 @@
  * @property {string | RegExp} [name] - The file name before the first dot.
  * @property {string | RegExp} [extension] - The file extension after the first dot.
  */
-
-module.exports = {}
