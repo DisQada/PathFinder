@@ -35,10 +35,7 @@ describe('readFolderPaths function', function () {
       assert.strictEqual(typeof folderName, 'string')
     })
 
-    assert.deepStrictEqual(paths, [
-      resolve('tests', '.eslintrc.json'),
-      resolve('tests', 'safe.test.js')
-    ])
+    assert.deepStrictEqual(paths, [resolve('tests', 'safe.test.js')])
   })
 
   it('With deepSearch', async function () {
@@ -58,7 +55,6 @@ describe('readFolderPaths function', function () {
     })
 
     assert.deepStrictEqual(paths, [
-      resolve('tests', '.eslintrc.json'),
       resolve('tests', 'class', 'filePath.test.js'),
       resolve('tests', 'func', 'finder.test.js'),
       resolve('tests', 'func', 'readers.test.js'),

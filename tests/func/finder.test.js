@@ -49,7 +49,7 @@ describe('findPaths function', function () {
 
     assert(Array.isArray(result))
     assert(result[0] instanceof FilePath)
-    assert.strictEqual(result.length, 14)
+    assert.strictEqual(result.length, 13)
   })
 
   it('Only one folder name', async function () {
@@ -69,7 +69,7 @@ describe('findPaths function', function () {
 
     assert(Array.isArray(result))
     assert(result[0] instanceof FilePath)
-    assert.strictEqual(result.length, 14)
+    assert.strictEqual(result.length, 13)
   })
 
   it('Not storing duplicates', async function () {
@@ -81,7 +81,7 @@ describe('findPaths function', function () {
 
     assert(Array.isArray(result))
     assert(result[0] instanceof FilePath)
-    assert.strictEqual(result.length, 14)
+    assert.strictEqual(result.length, 13)
   })
 
   it('Existing filter string options search', async function () {
