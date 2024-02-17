@@ -9,7 +9,7 @@
     "docs": "npm explore @disqada/typedoc -- npm run docs",
     "lint": "eslint . --fix --ignore-path .gitignore",
     "format": "prettier . --write --ignore-path .gitignore",
-    "test": "npx jest"
+    "test": "mocha ./tests/**/*.test.js"
   },
   "type": "commonjs",
   "main": "./src/exports.js",
@@ -55,12 +55,12 @@
   "license": "Apache-2.0",
   "devDependencies": {
     "@disqada/typedoc": "^1.2.1",
-    "@types/jest": "*",
     "eslint": "*",
     "eslint-plugin-import": "*",
-    "eslint-plugin-jest": "*",
     "eslint-plugin-jsdoc": "*",
+    "eslint-plugin-mocha": "^10.3.0",
     "eslint-plugin-promise": "*",
+    "mocha": "^10.3.0",
     "prettier": "*"
   }
 }

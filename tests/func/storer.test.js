@@ -1,3 +1,4 @@
+const assert = require('assert')
 const { resolve } = require('path')
 const {
   storeFolderPaths,
@@ -8,41 +9,41 @@ const {
 const folderNames = ['src', 'tests']
 const myPath = resolve('tests/safe.test.js')
 
-describe('storeFolderPaths functions', () => {
-  test('Empty array', async () => {
-    expect(async () => {
+describe('storeFolderPaths functions', function () {
+  it('Empty array', async function () {
+    assert.doesNotReject(async () => {
       await storeFolderPaths([])
-    }).not.toThrow()
+    })
   })
 
-  test('Folder names', async () => {
-    expect(async () => {
+  it('Folder names', async function () {
+    assert.doesNotReject(async () => {
       await storeFolderPaths(folderNames)
-    }).not.toThrow()
+    })
   })
 
-  test('Folder names with options', async () => {
-    expect(async () => {
+  it('Folder names with options', async function () {
+    assert.doesNotReject(async () => {
       /** @type {import("../../src/options").SearchOptions} */
       const options = {
         deepSearch: true
       }
 
       await storeFolderPaths(folderNames, options)
-    }).not.toThrow()
+    })
   })
 })
 
-describe('storePaths functions', () => {
-  test('String path array', () => {
+describe('storePaths functions', function () {
+  it('String path array', function () {
     const nothing = storePaths([myPath])
-    expect(nothing).toBeUndefined()
+    assert.strictEqual(nothing, undefined)
   })
 })
 
-describe('storedPath functions', () => {
-  test('Check if paths are stored', () => {
-    expect(storedPath(myPath)).toBeTruthy()
-    expect(storedPath('fake path')).toBeFalsy()
+describe('storedPath functions', function () {
+  it('Check if paths are stored', function () {
+    assert.strictEqual(storedPath(myPath), true)
+    assert.strictEqual(storedPath('fake path'), false)
   })
 })

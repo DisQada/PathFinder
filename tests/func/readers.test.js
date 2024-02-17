@@ -1,26 +1,27 @@
+const assert = require('assert')
 const { resolve } = require('path')
 const {
   readFolderPaths,
   readWorkspaceFolderNames
 } = require('../../src/func/readers')
 
-describe('readWorkspaceFolderNames function', () => {
-  test('Return array of valid folder names', async () => {
+describe('readWorkspaceFolderNames function', function () {
+  it('Return array of valid folder names', async function () {
     const validFolderNames = await readWorkspaceFolderNames()
 
-    expect(Array.isArray(validFolderNames)).toBe(true)
+    assert(Array.isArray(validFolderNames))
 
     validFolderNames.forEach((folderName) => {
-      expect(typeof folderName).toBe('string')
-      expect(folderName).not.toMatch(/[._]/)
+      assert.strictEqual(typeof folderName, 'string')
+      assert(!/[._]/.test(folderName))
     })
 
-    expect(validFolderNames).toEqual(['src', 'tests'])
+    assert.deepStrictEqual(validFolderNames, ['src', 'tests'])
   })
 })
 
-describe('readFolderPaths function', () => {
-  test('Without deepSearch', async () => {
+describe('readFolderPaths function', function () {
+  it('Without deepSearch', async function () {
     /** @type {import("../../src/options").SearchOptions} */
     const options = {}
     const myFolderPath = resolve('tests')
@@ -28,19 +29,19 @@ describe('readFolderPaths function', () => {
     /** @type {string[]} */
     const paths = await readFolderPaths(myFolderPath, options)
 
-    expect(Array.isArray(paths)).toBe(true)
+    assert(Array.isArray(paths))
 
     paths.forEach((folderName) => {
-      expect(typeof folderName).toBe('string')
+      assert.strictEqual(typeof folderName, 'string')
     })
 
-    expect(paths).toEqual([
+    assert.deepStrictEqual(paths, [
       resolve('tests', '.eslintrc.json'),
       resolve('tests', 'safe.test.js')
     ])
   })
 
-  test('With deepSearch', async () => {
+  it('With deepSearch', async function () {
     /** @type {import("../../src/options").SearchOptions} */
     const options = {
       deepSearch: true
@@ -50,13 +51,13 @@ describe('readFolderPaths function', () => {
     /** @type {string[]} */
     const paths = await readFolderPaths(myFolderPath, options)
 
-    expect(Array.isArray(paths)).toBe(true)
+    assert(Array.isArray(paths))
 
     paths.forEach((folderName) => {
-      expect(typeof folderName).toBe('string')
+      assert.strictEqual(typeof folderName, 'string')
     })
 
-    expect(paths).toEqual([
+    assert.deepStrictEqual(paths, [
       resolve('tests', '.eslintrc.json'),
       resolve('tests', 'class', 'filePath.test.js'),
       resolve('tests', 'func', 'finder.test.js'),

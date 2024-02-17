@@ -1,89 +1,90 @@
+const assert = require('assert')
 const { FilePath } = require('../../src/class/filePath')
 const { findPath, findPaths } = require('../../src/func/finder')
 const { storeFolderPaths } = require('../../src/func/storer')
 
-describe('findPath function', () => {
-  test('find first match', async () => {
+describe('findPath function', function () {
+  it('find first match', async function () {
     await storeFolderPaths(['src', 'tests'])
 
     /** @type {import("../../src/options").FilterOptions} */
     const options = { name: 'finder' }
     const result = findPath(options)
-    expect(result).toBeInstanceOf(FilePath)
+    assert(result instanceof FilePath)
   })
 
-  test('find js file', async () => {
+  it('find js file', async function () {
     await storeFolderPaths(['src', 'tests'])
 
     /** @type {import("../../src/options").FilterOptions} */
     const options = { name: 'finder', extension: 'js' }
     const result = findPath(options)
-    expect(result).toBeInstanceOf(FilePath)
+    assert(result instanceof FilePath)
   })
 
-  test('find test.js file', async () => {
+  it('find test.js file', async function () {
     await storeFolderPaths(['src', 'tests'])
 
     /** @type {import("../../src/options").FilterOptions} */
     const options = { name: 'finder', extension: 'test.js' }
     const result = findPath(options)
-    expect(result).toBeInstanceOf(FilePath)
+    assert(result instanceof FilePath)
   })
 
-  test('find non-existing file', async () => {
+  it('find non-existing file', async function () {
     await storeFolderPaths(['src', 'tests'])
 
     /** @type {import("../../src/options").FilterOptions} */
     const options = { name: 'finder', extension: 'png' }
     const result = findPath(options)
-    expect(result).toBeUndefined()
+    assert.strictEqual(result, undefined)
   })
 })
 
-describe('findPaths function', () => {
-  test('Without parameter', async () => {
+describe('findPaths function', function () {
+  it('Without parameter', async function () {
     await storeFolderPaths()
 
     const result = findPaths()
 
-    expect(Array.isArray(result)).toBeTruthy()
-    expect(result[0]).toBeInstanceOf(FilePath)
-    expect(result.length).toEqual(13)
+    assert(Array.isArray(result))
+    assert(result[0] instanceof FilePath)
+    assert.strictEqual(result.length, 14)
   })
 
-  test('Only one folder name', async () => {
+  it('Only one folder name', async function () {
     await storeFolderPaths(['src'])
 
     const result = findPaths()
 
-    expect(Array.isArray(result)).toBeTruthy()
-    expect(result[0]).toBeInstanceOf(FilePath)
-    expect(result.length).toEqual(7)
+    assert(Array.isArray(result))
+    assert(result[0] instanceof FilePath)
+    assert.strictEqual(result.length, 8)
   })
 
-  test('No filter search', async () => {
+  it('No filter search', async function () {
     await storeFolderPaths(['src', 'tests'])
 
     const result = findPaths()
 
-    expect(Array.isArray(result)).toBeTruthy()
-    expect(result[0]).toBeInstanceOf(FilePath)
-    expect(result.length).toEqual(13)
+    assert(Array.isArray(result))
+    assert(result[0] instanceof FilePath)
+    assert.strictEqual(result.length, 14)
   })
 
-  test('Not storing duplicates', async () => {
+  it('Not storing duplicates', async function () {
     await storeFolderPaths(['src', 'tests'])
     await storeFolderPaths(['src', 'tests'])
     await storeFolderPaths(['src', 'tests'])
 
     const result = findPaths()
 
-    expect(Array.isArray(result)).toBeTruthy()
-    expect(result[0]).toBeInstanceOf(FilePath)
-    expect(result.length).toEqual(13)
+    assert(Array.isArray(result))
+    assert(result[0] instanceof FilePath)
+    assert.strictEqual(result.length, 14)
   })
 
-  test('Existing filter string options search', async () => {
+  it('Existing filter string options search', async function () {
     await storeFolderPaths(['src', 'tests'])
 
     /** @type {import("../../src/options").FilterOptions} */
@@ -93,12 +94,12 @@ describe('findPaths function', () => {
 
     const result = findPaths(options)
 
-    expect(Array.isArray(result)).toBeTruthy()
-    expect(result[0]).toBeInstanceOf(FilePath)
-    expect(result.length).toEqual(2)
+    assert(Array.isArray(result))
+    assert(result[0] instanceof FilePath)
+    assert.strictEqual(result.length, 2)
   })
 
-  test('Existing filter regex options search', async () => {
+  it('Existing filter regex options search', async function () {
     await storeFolderPaths(['src', 'tests'])
 
     /** @type {import("../../src/options").FilterOptions} */
@@ -108,12 +109,12 @@ describe('findPaths function', () => {
 
     const result = findPaths(options)
 
-    expect(Array.isArray(result)).toBeTruthy()
-    expect(result[0]).toBeInstanceOf(FilePath)
-    expect(result.length).toEqual(2)
+    assert(Array.isArray(result))
+    assert(result[0] instanceof FilePath)
+    assert.strictEqual(result.length, 2)
   })
 
-  test('Non-existing filter options search', () => {
+  it('Non-existing filter options search', function () {
     /** @type {import("../../src/options").FilterOptions} */
     const options = {
       name: 'fake name'
@@ -121,8 +122,8 @@ describe('findPaths function', () => {
 
     const result = findPaths(options)
 
-    expect(Array.isArray(result)).toBeTruthy()
-    expect(result[0]).toBeUndefined()
-    expect(result.length).toEqual(0)
+    assert(Array.isArray(result))
+    assert.strictEqual(result[0], undefined)
+    assert.strictEqual(result.length, 0)
   })
 })

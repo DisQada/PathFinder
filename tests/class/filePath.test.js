@@ -1,73 +1,77 @@
+const assert = require('assert')
 const { resolve, sep } = require('node:path')
 const { FilePath } = require('../../src/class/filePath')
 
-describe('Instantiation with an invalid path', () => {
-  test('Absolute invalid file path', () => {
+describe('Instantiation with an invalid path', function () {
+  it('Absolute invalid file path', function () {
     const myPath = 'tests/fake.test.js'
 
-    expect(() => {
+    assert.throws(() => {
       new FilePath(myPath)
-    }).toThrow()
+    })
   })
 
-  test('Relative invalid file path', () => {
+  it('Relative invalid file path', function () {
     const myPath = '../saver.test.js'
 
-    expect(() => {
+    assert.throws(() => {
       new FilePath(myPath)
-    }).toThrow()
+    })
   })
 
-  test('Absolute valid directory path', () => {
+  it('Absolute valid directory path', function () {
     const myPath = 'tests/class'
 
-    expect(() => {
+    assert.throws(() => {
       new FilePath(myPath)
-    }).toThrow()
+    })
   })
 })
 
-describe('Instantiation with a valid absolute path', () => {
-  test('Deep file path', () => {
+describe('Instantiation with a valid absolute path', function () {
+  it('Deep file path', function () {
     const myPath = 'tests/class/filePath.test.js'
     const resolved = resolve(myPath)
     const filePath = new FilePath(myPath)
 
-    expect(typeof filePath).toBe('object')
+    assert.strictEqual(typeof filePath, 'object')
 
-    expect(filePath.fullPath).toEqual(resolved)
-    expect(filePath.fullName).toEqual('filePath.test.js')
+    assert.strictEqual(filePath.fullPath, resolved)
+    assert.strictEqual(filePath.fullName, 'filePath.test.js')
 
     const index = resolved.indexOf('class')
     const root = resolved.substring(0, index - 1)
 
-    expect(filePath.root).toEqual(root)
-    expect(filePath.folder).toEqual('class')
-    expect(filePath.name).toEqual('filePath')
-    expect(filePath.extension).toEqual('test.js')
+    assert.strictEqual(filePath.root, root)
+    assert.strictEqual(filePath.folder, 'class')
+    assert.strictEqual(filePath.name, 'filePath')
+    assert.strictEqual(filePath.extension, 'test.js')
   })
 
-  test('Workspace file path', () => {
+  it('Workspace file path', function () {
     const myPath = 'LICENSE.txt'
     const resolved = resolve(myPath)
     const filePath = new FilePath(myPath)
 
-    expect(typeof filePath).toBe('object')
+    assert.strictEqual(typeof filePath, 'object')
 
-    expect(filePath.fullPath).toEqual(resolved)
-    expect(filePath.fullName).toEqual('LICENSE.txt')
+    assert.strictEqual(filePath.fullPath, resolved)
+    assert.strictEqual(filePath.fullName, 'LICENSE.txt')
 
     const parts = resolved.split(sep)
     const root = parts.slice(0, -2).join(sep)
 
-    expect(filePath.root).toEqual(root)
-    expect(filePath.folder).toEqual('PathFinder')
-    expect(filePath.name).toEqual('LICENSE')
-    expect(filePath.extension).toEqual('txt')
+    assert.strictEqual(filePath.root, root)
+    assert.strictEqual(filePath.folder, 'PathFinder')
+    assert.strictEqual(filePath.name, 'LICENSE')
+    assert.strictEqual(filePath.extension, 'txt')
   })
 })
 
-describe('Instantiation with a valid relative path', () => {
+const myPath = '../safe.test.js'
+const resolved = resolve(__dirname, myPath)
+
+describe('Instantiation with a valid relative path', function () {
   /**
    * A shortcut for repeated code.
    * @param {FilePath} filePath - The string path of the file.
@@ -76,31 +80,26 @@ describe('Instantiation with a valid relative path', () => {
    * innerTest("./example.js", path.resolve(__dirname))
    */
   function innerTest(filePath, resolved) {
-    expect(typeof filePath).toBe('object')
+    assert.strictEqual(typeof filePath, 'object')
 
-    expect(filePath.fullPath).toEqual(resolved)
-    expect(filePath.fullName).toEqual('safe.test.js')
+    assert.strictEqual(filePath.fullPath, resolved)
+    assert.strictEqual(filePath.fullName, 'safe.test.js')
 
     const index = resolved.indexOf('tests')
     const root = resolved.substring(0, index - 1)
 
-    expect(filePath.root).toEqual(root)
-    expect(filePath.folder).toEqual('tests')
-    expect(filePath.name).toEqual('safe')
-    expect(filePath.extension).toEqual('test.js')
+    assert.strictEqual(filePath.root, root)
+    assert.strictEqual(filePath.folder, 'tests')
+    assert.strictEqual(filePath.name, 'safe')
+    assert.strictEqual(filePath.extension, 'test.js')
   }
 
-  const myPath = '../safe.test.js'
-  const resolved = resolve(__dirname, myPath)
-
-  // eslint-disable-next-line jest/expect-expect
-  test('Absolute path', () => {
+  it('Absolute path', function () {
     const filePath = new FilePath(resolved)
     innerTest(filePath, resolved)
   })
 
-  // eslint-disable-next-line jest/expect-expect
-  test('Relative path', () => {
+  it('Relative path', function () {
     const filePath = new FilePath(myPath, __dirname)
     innerTest(filePath, resolved)
   })

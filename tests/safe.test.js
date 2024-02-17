@@ -1,23 +1,20 @@
+const assert = require('assert')
 const { resolve } = require('path')
 const { FilePath } = require('../src/class/filePath')
 const { getPaths, setPaths } = require('../src/safe')
 
 const myPath = resolve('tests/safe.test.js')
 
-describe('storing new paths', () => {
-  test('directly', () => {
-    const result = setPaths([new FilePath(myPath)])
-    expect(result).toBeUndefined()
-  })
-})
+describe('Setting and getting new paths', function () {
+  it('directly', function () {
+    assert.doesNotThrow(() => setPaths([new FilePath(myPath)]))
 
-describe('Get stored paths', () => {
-  test('directly', () => {
     const paths = getPaths()
-    expect(Array.isArray(paths)).toBeTruthy()
+    assert(Array.isArray(paths))
+    assert.strictEqual(paths.length, 1)
 
     const fp = paths[0]
-    expect(fp).toBeInstanceOf(FilePath)
-    expect(fp.fullPath).toEqual(myPath)
+    assert(fp instanceof FilePath)
+    assert.strictEqual(fp.fullPath, myPath)
   })
 })
