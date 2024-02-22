@@ -4,9 +4,8 @@
   "version": "2.0.3",
   "description": "Easily find files in chosen directories in your project",
   "scripts": {
-    "config": "npm explore @disqada/typedoc -- npm run config",
-    "types": "npm explore @disqada/typedoc -- npm run types",
-    "docs": "npm explore @disqada/typedoc -- npm run docs",
+    "types": "workspace ./workspace.json -t",
+    "docs": "workspace ./workspace.json -t -d",
     "lint": "eslint . --fix --ignore-path .gitignore",
     "format": "prettier . --write --ignore-path .gitignore",
     "test": "mocha ./tests/**/*.test.js"
@@ -54,7 +53,8 @@
   },
   "license": "Apache-2.0",
   "devDependencies": {
-    "@disqada/typedoc": "^1.2.1",
+    "@disqada/workspace": "^1.5.1",
+    "@types/node": "^20.11.19",
     "eslint": "*",
     "eslint-plugin-import": "*",
     "eslint-plugin-jsdoc": "*",

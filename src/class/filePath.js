@@ -64,7 +64,7 @@ class FilePath {
 
     const parts = strP.split(sep)
 
-    const fullName = parts.pop()
+    const fullName = parts.pop() || '.'
     const index = fullName.indexOf('.')
 
     if (index === -1) {
@@ -75,7 +75,7 @@ class FilePath {
       this.extension = fullName.substring(index + 1)
     }
 
-    this.folder = parts.pop()
+    this.folder = parts.pop() || ''
     this.root = parts.join(sep)
   }
 
