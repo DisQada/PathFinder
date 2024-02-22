@@ -22,7 +22,7 @@ describe('readWorkspaceFolderNames function', function () {
 
 describe('readFolderPaths function', function () {
   it('Without deepSearch', async function () {
-    /** @type {import("../../src/options").SearchOptions} */
+    /** @type {import('../../src/options').SearchOptions} */
     const options = {}
     const myFolderPath = resolve('tests')
 
@@ -39,7 +39,7 @@ describe('readFolderPaths function', function () {
   })
 
   it('With deepSearch', async function () {
-    /** @type {import("../../src/options").SearchOptions} */
+    /** @type {import('../../src/options').SearchOptions} */
     const options = {
       deepSearch: true
     }

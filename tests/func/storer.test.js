@@ -24,7 +24,7 @@ describe('storeFolderPaths functions', function () {
 
   it('Folder names with options', async function () {
     assert.doesNotReject(async () => {
-      /** @type {import("../../src/options").SearchOptions} */
+      /** @type {import('../../src/options').SearchOptions} */
       const options = {
         deepSearch: true
       }

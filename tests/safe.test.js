@@ -13,8 +13,8 @@ describe('Setting and getting new paths', function () {
     assert(Array.isArray(paths))
     assert.strictEqual(paths.length, 1)
 
-    const fp = paths[0]
-    assert(fp instanceof FilePath)
-    assert.strictEqual(fp.fullPath, myPath)
+    const p = paths[0]
+    assert(p instanceof FilePath)
+    assert.strictEqual(p.fullPath, myPath)
   })
 })

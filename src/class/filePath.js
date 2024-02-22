@@ -10,8 +10,8 @@ class FilePath {
    * File name without extension.
    * @type {string}
    * @example
-   * const fp = new FilePath('example.test.js')
-   * // fp.name = 'example'
+   * const p = new FilePath('example.test.js')
+   * // p.name = 'example'
    */
   name
 
@@ -19,8 +19,8 @@ class FilePath {
    * File's parent folder/directory name.
    * @type {string}
    * @example
-   * const fp = new FilePath('main/example.js')
-   * // fp.folder = 'main'
+   * const p = new FilePath('main/example.js')
+   * // p.folder = 'main'
    */
   folder
 
@@ -28,8 +28,8 @@ class FilePath {
    * File extension after the first dot.
    * @type {string}
    * @example
-   * const fp = new FilePath('example.test.js')
-   * // fp.extension = 'test.js'
+   * const p = new FilePath('example.test.js')
+   * // p.extension = 'test.js'
    */
   extension
 
@@ -37,32 +37,32 @@ class FilePath {
    * File's absolute path before the parent folder/directory.
    * @type {string}
    * @example
-   * const fp = new FilePath('C:/users/someone/main/example.js')
-   * // fp.root = 'C:/users/someone'
+   * const p = new FilePath('C:/users/someone/main/example.js')
+   * // p.root = 'C:/users/someone'
    */
   root
 
   /**
    * Defining the initial values of the class instance.
-   * @param {string} filePath - An absolute or relative to workspace path, if not, the `relativeTo` parameter must have a value.
-   * @param {string} [relativeTo] - The path relative to the location of the `filePath` parameter if wasn't relative to the workspace.
-   * @throws {Error} If `filePath` is not absolute or relative to workspace path.
+   * @param {string} strP - An absolute or relative to workspace path, if not, the `relativeTo` parameter must have a value.
+   * @param {string} [relativeTo] - The path relative to the location of the `strP` parameter if wasn't relative to the workspace.
+   * @throws {Error} If `strP` is not absolute or relative to workspace path.
    */
-  constructor(filePath, relativeTo) {
-    if (!isAbsolute(filePath)) {
+  constructor(strP, relativeTo) {
+    if (!isAbsolute(strP)) {
       if (relativeTo) {
-        filePath = resolve(relativeTo, filePath)
+        strP = resolve(relativeTo, strP)
       } else {
-        filePath = resolve(filePath)
+        strP = resolve(strP)
       }
     }
 
-    const stat = statSync(filePath)
+    const stat = statSync(strP)
     if (!stat?.isFile()) {
-      throw new Error('The path is not pointing to a file: ' + filePath)
+      throw new Error('The path is not pointing to a file: ' + strP)
     }
 
-    const parts = filePath.split(sep)
+    const parts = strP.split(sep)
 
     const fullName = parts.pop()
     const index = fullName.indexOf('.')

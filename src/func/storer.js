@@ -4,35 +4,34 @@ const { FilePath } = require('../class/filePath')
 
 /**
  * Check if a file path saved.
- * @param {string} path - The path string to check for.
+ * @param {string} strP - The path string to check for.
  * @returns {boolean} True if saved, false otherwise.
  * @example
  * if (storedPath('.../example.js')) { ... }
  */
-function storedPath(path) {
-  return getPaths().some((fp) => fp.fullPath === path)
+function storedPath(strP) {
+  return getPaths().some((p) => p.fullPath === strP)
 }
 
 /**
  * Add file paths to the saved ones if not saved already.
- * @param {string[]} paths - Paths to add.
+ * @param {string[]} strPs - Paths to add.
  * @returns {void}
  * @example
  * storePaths(['example1.js', 'src/example2.js'])
  */
-function storePaths(paths) {
+function storePaths(strPs) {
   const newPaths = []
 
-  const length = paths.length
+  const length = strPs.length
   for (let i = 0; i < length; i++) {
-    const path = paths[i]
+    const strP = strPs[i]
 
-    if (storedPath(path)) {
+    if (storedPath(strP)) {
       continue
     }
 
-    const filePath = new FilePath(path)
-    newPaths.push(filePath)
+    newPaths.push(new FilePath(strP))
   }
 
   setPaths(newPaths)
@@ -61,16 +60,16 @@ async function storeFolderPaths(
   }
 
   if (folderPaths.length === 1) {
-    const filePaths = await readFolderPaths(folderPaths[0], options)
-    storePaths(filePaths)
+    const paths = await readFolderPaths(folderPaths[0], options)
+    storePaths(paths)
     return
   }
 
-  const filePaths = await Promise.all(
-    folderPaths.map(async (path) => await readFolderPaths(path, options))
+  const paths = await Promise.all(
+    folderPaths.map(async (p) => await readFolderPaths(p, options))
   )
 
-  storePaths(filePaths.flat())
+  storePaths(paths.flat())
 }
 
 module.exports = {
