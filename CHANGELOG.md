@@ -1,3 +1,11 @@
+# [2.1.0](https://github.com/DisQada/PathFinder/compare/v2.0.3...v2.1.0) (2024-02-22)
+
+
+### Features
+
+* Add support for ES Module ([59bd54f](https://github.com/DisQada/PathFinder/commit/59bd54f0245e09739e7b6fa9b1c98ca6d17ade79))
+* **finder:** Add search in given array ([f131972](https://github.com/DisQada/PathFinder/commit/f1319720e1b6eb5ab4d01b0206ecb08e57a9261e))
+
 ## [2.0.3](https://github.com/DisQada/PathFinder/compare/v2.0.2...v2.0.3) (2023-12-29)
 
 

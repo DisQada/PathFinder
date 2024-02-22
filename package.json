@@ -1,7 +1,7 @@
 {
   "displayName": "PathFinder",
   "name": "@disqada/pathfinder",
-  "version": "2.0.3",
+  "version": "2.1.0",
   "description": "Easily find files in chosen directories in your project",
   "scripts": {
     "types": "workspace ./workspace.json -t",
