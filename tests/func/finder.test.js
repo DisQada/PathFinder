@@ -127,3 +127,41 @@ describe('findPaths function', function () {
     assert.strictEqual(result.length, 0)
   })
 })
+
+describe('Chain use of findPaths function', function () {
+  it('Double chain', async function () {
+    await storeFolderPaths()
+
+    /** @type {import('../../src/options').FilterOptions} */
+    const options = {
+      extension: 'js'
+    }
+    const result = findPaths(options)
+
+    /** @type {import('../../src/options').FilterOptions} */
+    const options2 = {
+      name: 'safe'
+    }
+    const result2 = findPaths(options2, result)
+
+    assert(result2.length < result.length)
+  })
+
+  it('Triple chain', async function () {
+    await storeFolderPaths()
+
+    /** @type {import('../../src/options').FilterOptions} */
+    const options = {
+      extension: 'js'
+    }
+    const result = findPaths(options)
+
+    /** @type {import('../../src/options').FilterOptions} */
+    const options2 = {
+      name: /[_a-zA-Z0-9]+/
+    }
+    const result2 = findPaths(options2, result)
+
+    assert.strictEqual(result2.length, result.length)
+  })
+})
