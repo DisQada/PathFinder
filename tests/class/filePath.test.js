@@ -40,14 +40,14 @@ describe('Instantiation with a valid absolute path', function () {
   })
 
   it('Workspace file path', function () {
-    const myPath = 'LICENSE.txt'
+    const myPath = 'LICENSE'
     const resolved = resolve(myPath)
     const p = new FilePath(myPath)
 
     assert.strictEqual(typeof p, 'object')
 
     assert.strictEqual(p.fullPath, resolved)
-    assert.strictEqual(p.fullName, 'LICENSE.txt')
+    assert.strictEqual(p.fullName, 'LICENSE')
 
     const parts = resolved.split(sep)
     const root = parts.slice(0, -2).join(sep)
@@ -55,7 +55,7 @@ describe('Instantiation with a valid absolute path', function () {
     assert.strictEqual(p.root, root)
     assert.strictEqual(p.folder, 'PathFinder')
     assert.strictEqual(p.name, 'LICENSE')
-    assert.strictEqual(p.extension, 'txt')
+    assert.strictEqual(p.extension, '')
   })
 })
 

@@ -6,7 +6,6 @@
   "scripts": {
     "types": "workspace ./workspace.json -t",
     "docs": "workspace ./workspace.json -t -d",
-    "lint": "eslint . --fix --ignore-path .gitignore",
     "format": "prettier . --write --ignore-path .gitignore",
     "test": "mocha ./tests/**/*.test.js"
   },
@@ -22,11 +21,10 @@
     }
   },
   "files": [
-    "src/",
-    "types/",
-    "CHANGELOG.md",
-    "README.md",
-    "LICENSE.txt"
+    "src",
+    "types",
+    "LICENSE",
+    "*.md"
   ],
   "homepage": "https://disqada.github.io/PathFinder",
   "repository": {
@@ -46,21 +44,11 @@
     "folder",
     "file"
   ],
-  "author": {
-    "name": "The Alpha",
-    "email": "contact@nabilalsaiad.com",
-    "url": "https://links.nabilalsaiad.com"
-  },
+  "author": "DisQada <hi@disqada.org> (https://links.disqada.org)",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@disqada/workspace": "^1.5.1",
-    "@types/node": "^20.11.19",
-    "eslint": "*",
-    "eslint-plugin-import": "*",
-    "eslint-plugin-jsdoc": "*",
-    "eslint-plugin-mocha": "^10.3.0",
-    "eslint-plugin-promise": "*",
-    "mocha": "^10.3.0",
-    "prettier": "*"
+    "@disqada/workspace": "^1.5.2",
+    "mocha": "^10.7.3",
+    "prettier": "^3.3.3"
   }
 }
