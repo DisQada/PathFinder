@@ -7,7 +7,7 @@
     "types": "workspace ./workspace.json -t",
     "docs": "workspace ./workspace.json -t -d",
     "format": "prettier . --write --ignore-path .gitignore",
-    "test": "mocha ./tests/**/*.test.js"
+    "test": "mocha ./test/**/*.test.js"
   },
   "type": "commonjs",
   "main": "./src/exports.js",
