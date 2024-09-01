@@ -1,7 +1,7 @@
-const { ok, equal, doesNotThrow } = require('assert/strict')
-const { resolve } = require('path')
-const { FilePath } = require('../src/class/filePath.js')
-const { getPaths, setPaths } = require('../src/safe.js')
+import { ok, equal, doesNotThrow } from 'assert/strict'
+import { resolve } from 'path'
+import { FilePath } from '../src/class/filePath.js'
+import { getPaths, setPaths } from '../src/safe.js'
 
 const myPath = resolve('test/safe.test.js')
 

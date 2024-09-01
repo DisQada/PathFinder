@@ -1,7 +1,7 @@
 /** @import {SearchOptions} from '../../src/options.js' */
-const { equal, doesNotReject } = require('assert/strict')
-const { resolve } = require('path')
-const { storeFolderPaths, storePaths, storedPath } = require('../../src/func/storer.js')
+import { equal, doesNotReject } from 'assert/strict'
+import { resolve } from 'path'
+import { storeFolderPaths, storePaths, storedPath } from '../../src/func/storer.js'
 
 const folderNames = ['src', 'test']
 const myPath = resolve('test/safe.test.js')

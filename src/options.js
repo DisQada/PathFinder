@@ -1,4 +1,4 @@
-module.exports = {}
+export {}
 
 /**
  * Used to filter the search logic | Options to control how path saving is performed.

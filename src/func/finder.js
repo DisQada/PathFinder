@@ -1,4 +1,4 @@
-const { getPaths } = require('../safe')
+import { getPaths } from '../safe.js'
 
 /**
  * Find all stored paths with filtering.
@@ -10,7 +10,7 @@ const { getPaths } = require('../safe')
  * @example <caption>will return all stored js and json files</caption>
  * findPaths({ extension: /^js(on)?$/ })
  */
-function findPaths(options, toSearchIn) {
+export function findPaths(options, toSearchIn) {
   /**
    * Check if the given `p` matches the filter options on a single property level.
    * @param {import('../class/filePath').FilePath} p - The FilePath to check it's property.
@@ -56,11 +56,6 @@ function findPaths(options, toSearchIn) {
  * const p = findPath({ name: 'example' })
  * const { ... } = require(p.fullPath)
  */
-function findPath(options, otherPaths) {
+export function findPath(options, otherPaths) {
   return findPaths(options, otherPaths)[0]
-}
-
-module.exports = {
-  findPath,
-  findPaths
 }

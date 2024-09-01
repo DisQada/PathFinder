@@ -1,5 +1,5 @@
-const { sep } = require('path')
-const { readdir, stat } = require('fs/promises')
+import { sep } from 'path'
+import { readdir, stat } from 'fs/promises'
 
 /**
  * Get all folder names in the root directory of the workspace.
@@ -8,7 +8,7 @@ const { readdir, stat } = require('fs/promises')
  * @example <caption>If the top level folders are 'src', 'dist', 'node_modules' and '.git', then it will return ['src', 'dist']</caption>
  * const folderNames = readWorkspaceFolderNames()
  */
-async function readWorkspaceFolderNames() {
+export async function readWorkspaceFolderNames() {
   const invalidNameRegExp = /[._]/
 
   const folderNames = await readdir(process.cwd(), {
@@ -33,7 +33,7 @@ async function readWorkspaceFolderNames() {
  * @example
  * const paths = readFolderPaths(['src'], { deepSearch = true })
  */
-async function readFolderPaths(folderPath, options) {
+export async function readFolderPaths(folderPath, options) {
   const stats = await stat(folderPath)
   if (!stats.isDirectory()) {
     throw new Error('Folder path is invalid: ' + folderPath)
@@ -54,9 +54,4 @@ async function readFolderPaths(folderPath, options) {
   }
 
   return allFiles
-}
-
-module.exports = {
-  readWorkspaceFolderNames,
-  readFolderPaths
 }

@@ -11,7 +11,7 @@ let paths = []
  * @example
  * const paths = getPaths()
  */
-function getPaths() {
+export function getPaths() {
   return paths
 }
 
@@ -23,11 +23,6 @@ function getPaths() {
  * const newPaths = [new FilePath(...)]
  * setPaths(newPaths)
  */
-function setPaths(newPaths) {
+export function setPaths(newPaths) {
   paths = newPaths
-}
-
-module.exports = {
-  getPaths,
-  setPaths
 }

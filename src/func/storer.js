@@ -1,6 +1,6 @@
-const { readWorkspaceFolderNames, readFolderPaths } = require('./readers')
-const { getPaths, setPaths } = require('../safe')
-const { FilePath } = require('../class/filePath')
+import { readWorkspaceFolderNames, readFolderPaths } from './readers.js'
+import { getPaths, setPaths } from '../safe.js'
+import { FilePath } from '../class/filePath.js'
 
 /**
  * Check if a file path saved.
@@ -9,7 +9,7 @@ const { FilePath } = require('../class/filePath')
  * @example
  * if (storedPath('.../example.js')) { ... }
  */
-function storedPath(strP) {
+export function storedPath(strP) {
   return getPaths().some((p) => p.fullPath === strP)
 }
 
@@ -20,7 +20,7 @@ function storedPath(strP) {
  * @example
  * storePaths(['example1.js', 'src/example2.js'])
  */
-function storePaths(strPs) {
+export function storePaths(strPs) {
   const newPaths = []
 
   const length = strPs.length
@@ -49,7 +49,7 @@ function storePaths(strPs) {
  * @example
  * storeFolderPaths(['src', 'src/main'], { deepSearch: false })
  */
-async function storeFolderPaths(
+export async function storeFolderPaths(
   folderPaths,
   options = {
     deepSearch: true
@@ -70,10 +70,4 @@ async function storeFolderPaths(
   )
 
   storePaths(paths.flat())
-}
-
-module.exports = {
-  storedPath,
-  storePaths,
-  storeFolderPaths
 }

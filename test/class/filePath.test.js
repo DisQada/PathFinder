@@ -1,7 +1,9 @@
-const { equal, throws } = require('assert/strict')
-const { resolve, sep } = require('node:path')
-const { FilePath } = require('../../src/class/filePath')
+import { equal, throws } from 'assert/strict'
+import { dirname, resolve, sep } from 'path'
+import { fileURLToPath } from 'url'
+import { FilePath } from '../../src/class/filePath.js'
 
+const __dirname = dirname(fileURLToPath(import.meta.url))
 const myPath = '../safe.test.js'
 const resolved = resolve(__dirname, myPath)
 

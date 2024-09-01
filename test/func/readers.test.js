@@ -1,7 +1,7 @@
 /** @import {SearchOptions} from '../../src/options.js' */
-const { ok, equal, deepEqual } = require('assert/strict')
-const { resolve } = require('path')
-const { readFolderPaths, readWorkspaceFolderNames } = require('../../src/func/readers.js')
+import { ok, equal, deepEqual } from 'assert/strict'
+import { resolve } from 'path'
+import { readFolderPaths, readWorkspaceFolderNames } from '../../src/func/readers.js'
 
 describe('func', function () {
   describe('readers', function () {

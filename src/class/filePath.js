@@ -1,11 +1,11 @@
-const { statSync } = require('fs')
-const { isAbsolute, resolve, sep } = require('path')
+import { statSync } from 'fs'
+import { isAbsolute, resolve, sep } from 'path'
 
 /**
  * The class of file paths in the tool.
  * @class
  */
-class FilePath {
+export class FilePath {
   /**
    * File name without extension.
    * @type {string}
@@ -98,8 +98,4 @@ class FilePath {
   get fullPath() {
     return this.root + sep + this.folder + sep + this.fullName
   }
-}
-
-module.exports = {
-  FilePath
 }

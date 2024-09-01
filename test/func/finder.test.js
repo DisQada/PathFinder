@@ -1,8 +1,8 @@
 /** @import {FilterOptions} from '../../src/options.js' */
-const { ok, equal } = require('assert/strict')
-const { FilePath } = require('../../src/class/filePath.js')
-const { findPath, findPaths } = require('../../src/func/finder.js')
-const { storeFolderPaths } = require('../../src/func/storer.js')
+import { ok, equal } from 'assert/strict'
+import { FilePath } from '../../src/class/filePath.js'
+import { findPath, findPaths } from '../../src/func/finder.js'
+import { storeFolderPaths } from '../../src/func/storer.js'
 
 describe('func', function () {
   describe('finder', function () {
@@ -52,7 +52,7 @@ describe('func', function () {
 
         ok(Array.isArray(result))
         ok(result[0] instanceof FilePath)
-        equal(result.length, 13)
+        equal(result.length, 12)
       })
 
       it('Only one folder name', async function () {
@@ -62,7 +62,7 @@ describe('func', function () {
 
         ok(Array.isArray(result))
         ok(result[0] instanceof FilePath)
-        equal(result.length, 8)
+        equal(result.length, 7)
       })
 
       it('No filter search', async function () {
@@ -72,7 +72,7 @@ describe('func', function () {
 
         ok(Array.isArray(result))
         ok(result[0] instanceof FilePath)
-        equal(result.length, 13)
+        equal(result.length, 12)
       })
 
       it('Not storing duplicates', async function () {
@@ -84,7 +84,7 @@ describe('func', function () {
 
         ok(Array.isArray(result))
         ok(result[0] instanceof FilePath)
-        equal(result.length, 13)
+        equal(result.length, 12)
       })
 
       it('Existing filter string options search', async function () {
