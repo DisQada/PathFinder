@@ -1,10 +1,12 @@
+/** @import {FilterOptions} from '../options.js' */
+/** @import {FilePath} from '../class/filePath.js' */
 import { getPaths } from '../safe.js'
 
 /**
  * Find all stored paths with filtering.
- * @param {import('../options').FilterOptions} [options] - If options is null, all the paths will be returned.
- * @param {import('../class/filePath').FilePath[]} [toSearchIn] - If not provided, the search will be performed on the stored paths.
- * @returns {import('../class/filePath').FilePath[]} - If no paths found, an empty array will be returned.
+ * @param {FilterOptions} [options] - If options is null, all the paths will be returned.
+ * @param {FilePath[]} [toSearchIn] - If not provided, the search will be performed on the stored paths.
+ * @returns {FilePath[]} - If no paths found, an empty array will be returned.
  * @example <caption>will return all stored js files</caption>
  * findPaths({ extension: 'js' })
  * @example <caption>will return all stored js and json files</caption>
@@ -13,7 +15,7 @@ import { getPaths } from '../safe.js'
 export function findPaths(options, toSearchIn) {
   /**
    * Check if the given `p` matches the filter options on a single property level.
-   * @param {import('../class/filePath').FilePath} p - The FilePath to check it's property.
+   * @param {FilePath} p - The FilePath to check it's property.
    * @param {string} propName - The level in `p` to check.
    * @returns {boolean} - True if matches, false otherwise.
    * @example
@@ -49,9 +51,9 @@ export function findPaths(options, toSearchIn) {
 
 /**
  * Search for the first stored FilePath matching the given filter options.
- * @param {import('../options').FilterOptions} options - FilePath's search filter options.
- * @param {import('../class/filePath').FilePath[]} [otherPaths] - If not provided, the search will be performed on the stored paths.
- * @returns {import('../class/filePath').FilePath | void} - The FilePath if found, otherwise undefined.
+ * @param {FilterOptions} options - FilePath's search filter options.
+ * @param {FilePath[]} [otherPaths] - If not provided, the search will be performed on the stored paths.
+ * @returns {FilePath | void} - The FilePath if found, otherwise undefined.
  * @example <caption>will return the first file called 'example'</caption>
  * const p = findPath({ name: 'example' })
  * const { ... } = require(p.fullPath)

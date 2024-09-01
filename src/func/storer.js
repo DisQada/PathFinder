@@ -1,3 +1,4 @@
+/** @import {SearchOptions} from '../options.js' */
 import { readWorkspaceFolderNames, readFolderPaths } from './readers.js'
 import { getPaths, setPaths } from '../safe.js'
 import { FilePath } from '../class/filePath.js'
@@ -40,7 +41,7 @@ export function storePaths(strPs) {
 /**
  * Save all file paths in specific folder.
  * @param {string[]} [folderPaths] - Folder path to search in.
- * @param {import('../options').SearchOptions} [options] - Whether to search subfolders. @defaultValue { deepSearch: true }
+ * @param {SearchOptions} [options] - Whether to search subfolders. @defaultValue { deepSearch: true }
  * @returns {Promise<void>}
  * @example
  * storeFolderPaths()
