@@ -11,17 +11,9 @@ import { readdir, stat } from 'fs/promises'
  */
 export async function readWorkspaceFolderNames() {
   const invalidNameRegExp = /[._]/
-
-  const folderNames = await readdir(process.cwd(), {
-    withFileTypes: true
-  })
-
-  const validFolderNames = folderNames.filter(
-    (folderName) =>
-      !invalidNameRegExp.test(folderName.name) && folderName.isDirectory()
-  )
-
-  return validFolderNames.map((folderName) => folderName.name)
+  const folderNames = await readdir(process.cwd(), { withFileTypes: true })
+  const validFolderNames = folderNames.filter((fn) => !invalidNameRegExp.test(fn.name) && fn.isDirectory())
+  return validFolderNames.map((fn) => fn.name)
 }
 
 /**
@@ -36,9 +28,7 @@ export async function readWorkspaceFolderNames() {
  */
 export async function readFolderPaths(folderPath, options) {
   const stats = await stat(folderPath)
-  if (!stats.isDirectory()) {
-    throw new Error('Folder path is invalid: ' + folderPath)
-  }
+  if (!stats.isDirectory()) throw new Error('Folder path is invalid: ' + folderPath)
 
   const allFiles = []
 
@@ -46,9 +36,8 @@ export async function readFolderPaths(folderPath, options) {
     const fullPath = folderPath + sep + name
     const stats = await stat(fullPath)
 
-    if (stats.isFile()) {
-      allFiles.push(fullPath)
-    } else if (options.deepSearch && stats.isDirectory()) {
+    if (stats.isFile()) allFiles.push(fullPath)
+    else if (options.deepSearch && stats.isDirectory()) {
       const deepPaths = await readFolderPaths(fullPath, options)
       allFiles.push(...deepPaths)
     }

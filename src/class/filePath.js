@@ -50,17 +50,12 @@ export class FilePath {
    */
   constructor(strP, relativeTo) {
     if (!isAbsolute(strP)) {
-      if (relativeTo) {
-        strP = resolve(relativeTo, strP)
-      } else {
-        strP = resolve(strP)
-      }
+      if (relativeTo) strP = resolve(relativeTo, strP)
+      else strP = resolve(strP)
     }
 
     const stat = statSync(strP)
-    if (!stat?.isFile()) {
-      throw new Error('The path is not pointing to a file: ' + strP)
-    }
+    if (!stat?.isFile()) throw new Error('The path is not pointing to a file: ' + strP)
 
     const parts = strP.split(sep)
 
@@ -84,10 +79,7 @@ export class FilePath {
    * @public
    */
   get fullName() {
-    if (this.extension === '') {
-      return this.name
-    }
-
+    if (this.extension === '') return this.name
     return this.name + '.' + this.extension
   }
 

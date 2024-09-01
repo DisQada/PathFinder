@@ -28,9 +28,7 @@ export function storePaths(strPs) {
   for (let i = 0; i < length; i++) {
     const strP = strPs[i]
 
-    if (storedPath(strP)) {
-      continue
-    }
+    if (storedPath(strP)) continue
 
     newPaths.push(new FilePath(strP))
   }
@@ -50,15 +48,8 @@ export function storePaths(strPs) {
  * @example
  * storeFolderPaths(['src', 'src/main'], { deepSearch: false })
  */
-export async function storeFolderPaths(
-  folderPaths,
-  options = {
-    deepSearch: true
-  }
-) {
-  if (!folderPaths) {
-    folderPaths = await readWorkspaceFolderNames()
-  }
+export async function storeFolderPaths(folderPaths, options = { deepSearch: true }) {
+  if (!folderPaths) folderPaths = await readWorkspaceFolderNames()
 
   if (folderPaths.length === 1) {
     const paths = await readFolderPaths(folderPaths[0], options)
@@ -66,9 +57,7 @@ export async function storeFolderPaths(
     return
   }
 
-  const paths = await Promise.all(
-    folderPaths.map(async (p) => await readFolderPaths(p, options))
-  )
+  const paths = await Promise.all(folderPaths.map(async (p) => await readFolderPaths(p, options)))
 
   storePaths(paths.flat())
 }

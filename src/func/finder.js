@@ -23,30 +23,16 @@ export function findPaths(options, toSearchIn) {
    */
   function test(p, propName) {
     const prop = options?.[propName] || undefined
-    if (!prop) {
-      return true
-    }
+    if (!prop) return true
 
-    if (typeof prop === 'string') {
-      return prop === p[propName]
-    } else {
-      return prop.test(p[propName])
-    }
+    if (typeof prop === 'string') return prop === p[propName]
+    else return prop.test(p[propName])
   }
   const paths = toSearchIn || getPaths()
 
-  if (!options) {
-    return paths
-  }
+  if (!options) return paths
 
-  return paths.filter((p) => {
-    return (
-      test(p, 'name') &&
-      test(p, 'extension') &&
-      test(p, 'folders') &&
-      test(p, 'root')
-    )
-  })
+  return paths.filter((p) => test(p, 'name') && test(p, 'extension') && test(p, 'folders') && test(p, 'root'))
 }
 
 /**
