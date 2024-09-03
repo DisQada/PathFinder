@@ -1,3 +1,20 @@
+# [3.0.0](https://github.com/DisQada/PathFinder/compare/v2.1.0...v3.0.0) (2024-09-03)
+
+
+### Bug Fixes
+
+* تصدير بقية الأنواع ([da9a1b7](https://github.com/DisQada/PathFinder/commit/da9a1b7870dbceb24dc63e01630e3076e0913eda))
+
+
+### Code Refactoring
+
+* تغيير نوع جافا سكربت من CJS إلى MJS ([d4071bc](https://github.com/DisQada/PathFinder/commit/d4071bc78bac48d8293436b234c5916bc10af3e5))
+
+
+### BREAKING CHANGES
+
+* عدم القدرة على إستيراد الطرد من المشاريع المكتوبة بCJS
+
 # [2.1.0](https://github.com/DisQada/PathFinder/compare/v2.0.3...v2.1.0) (2024-02-22)
 
 ### Features
