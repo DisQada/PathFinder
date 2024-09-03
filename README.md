@@ -62,16 +62,16 @@ Let's say that this is out workspace
 <root>
   ├── package.json
   ├── src
-  │     ├── example1.js
-  │     └── example2.js
+  │     ├── a.js
+  │     └── b.js
   └── data
-        └── example1.json
+        └── a.json
 ```
 
 We use this code to store the paths of all files in the `src` and `data` folder
 
 ```js
-const { storeFolderPaths } = require('@disqada/pathfinder')
+import { storeFolderPaths } from '@disqada/pathfinder'
 storeFolderPaths(['src', 'data'])
 ```
 
@@ -80,9 +80,9 @@ Now we'll have the following paths stored successfully
 > The file paths are stored in order
 
 ```bash
-.../src/example1.js
-.../src/example2.js
-.../data/example1.json
+.../src/a.js
+.../src/b.js
+.../data/a.json
 ```
 
 ## Find paths
@@ -93,13 +93,13 @@ Here is where this tools comes to help, if you only know the name of the file th
 
 > Both functions work the same, it's just that `filePath()` returns the first match while `filePaths()` returns them all in an array
 
-Let's say that we want to require the file `src/example2.js`, we use the following code for that
+Let's say that we want to require the file `src/b.js`, we use the following code for that
 
 ```js
-const { findPath } = require('@disqada/pathfinder')
+import { findPath } from '@disqada/pathfinder'
 
-const filePath = findPath({ name: 'example2' })
-const { ... } = require(filePath.fullPath)
+const filePath = findPath({ name: 'b' })
+const { ... } = (await import(filePath.fullPath)).default
 ```
 
 With that we successfully required the module and used it just like normal but without the need to know it's full path
@@ -114,11 +114,11 @@ Let's say that this is out workspace
 <root>
   ├── package.json
   └── src
-        ├── example1.js
-        └── example1.json
+        ├── a.js
+        └── a.json
 ```
 
-Now let's say we've written some code and we want to require the file `src/example1.json`, we can use the same code, but there is a problem, the function is returning the path of `src/example1.js` instead of `src/example1.json` because it was stored before and the function will return the first match
+Now let's say we've written some code and we want to require the file `src/a.json`, we can use the same code, but there is a problem, the function is returning the path of `src/a.js` instead of `src/a.json` because it was stored before and the function will return the first match
 
 To work around this, we have couple of choices
 
@@ -131,13 +131,13 @@ Renaming one of the files to another name will solve this problem, but it's not 
 Instead of getting one file path, we can get an array of all the file paths of that name by changing the function from `findPath()` to `findPaths()`
 
 ```js
-const { findPaths } = require('@disqada/pathfinder')
+import { findPaths } from '@disqada/pathfinder'
 
-const filePaths = findPaths({ name: 'example1' })
-const { ... } = require(filePaths[1].fullPath)
+const filePaths = findPaths({ name: 'a' })
+const { ... } = (await import(filePaths[1].fullPath)).default
 ```
 
-This will solve the problem, for now, what if we then added another file named `example1.js` somewhere in our project or the order of the files changed (files order in the workspace or the order of storing)?
+This will solve the problem, for now, what if we then added another file named `a.js` somewhere in our project or the order of the files changed (files order in the workspace or the order of storing)?
 
 ## Filtering by different properties
 
@@ -150,10 +150,10 @@ The best way to work around the problem of file name conflict is by adding more 
 Both files have the same file name and path except for only the extension, so we can specify the `extension` property in the `FilterOptions` parameter to get our desired file
 
 ```js
-const { findPath } = require('@disqada/pathfinder')
+import { findPath } from '@disqada/pathfinder'
 
 const filePath = findPath({ extension: 'json' })
-const { ... } = require(filePath.fullPath)
+const { ... } = (await import(filePath.fullPath)).default
 ```
 
 ### Folder difference
@@ -164,16 +164,16 @@ If our workspace was instead like this, where both the files' name and extension
 <root>
   ├── package.json
   ├── src
-  │     └── example1.js
+  │     └── a.js
   └── data
-        └── example1.js
+        └── a.js
 ```
 
 Then the way we'll get the correct path is as follows
 
 ```js
-const { findPath } = require('@disqada/pathfinder')
+import { findPath } from '@disqada/pathfinder'
 
 const filePath = findPath({ folder: 'data' })
-const { ... } = require(filePath.fullPath)
+const { ... } = (await import(filePath.fullPath)).default
 ```

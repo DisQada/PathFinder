@@ -42,7 +42,7 @@ export function findPaths(options, toSearchIn) {
  * @returns {FilePath | void} - The FilePath if found, otherwise undefined.
  * @example <caption>will return the first file called 'example'</caption>
  * const p = findPath({ name: 'example' })
- * const { ... } = require(p.fullPath)
+ * const { ... } = (await import(p.fullPath)).default
  */
 export function findPath(options, otherPaths) {
   return findPaths(options, otherPaths)[0]
