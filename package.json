@@ -4,6 +4,7 @@
   "version": "2.1.0",
   "description": "Easily find files in chosen directories in your project",
   "scripts": {
+    "prepack": "npm run types && npm run format",
     "types": "workspace ./workspace.json -c -t",
     "docs": "workspace ./workspace.json -c -t -d",
     "format": "prettier . --write --ignore-path .gitignore",
