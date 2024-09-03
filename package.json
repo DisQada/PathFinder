@@ -4,8 +4,8 @@
   "version": "2.1.0",
   "description": "Easily find files in chosen directories in your project",
   "scripts": {
-    "types": "workspace ./workspace.json -t",
-    "docs": "workspace ./workspace.json -t -d",
+    "types": "workspace ./workspace.json -c -t",
+    "docs": "workspace ./workspace.json -c -t -d",
     "format": "prettier . --write --ignore-path .gitignore",
     "test": "mocha ./test/**/*.test.js"
   },
@@ -46,7 +46,8 @@
   "author": "DisQada <hi@disqada.org> (https://links.disqada.org)",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@disqada/workspace": "^1.5.2",
+    "@disqada/workspace": "^1.6.1",
+    "@types/node": "^22.5.2",
     "mocha": "^10.7.3",
     "prettier": "^3.3.3"
   }
